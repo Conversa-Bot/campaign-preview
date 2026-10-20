@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Conversa brand fonts (vendored — never hotlink conversa-bot.com)
+   --------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Zodiak";
+  src: url("/public/brand/zodiak-regular.woff2") format("woff2"),
+       url("/public/brand/zodiak-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Zodiak";
+  src: url("/public/brand/zodiak-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------------------------------------------------------------------------
+   Design tokens — the official deck palette range. Do not invent new colours.
+   Accent #F5A524 is used ONLY on primary CTAs, active tab states, focus rings
+   and the single highlighted number per section. Never a background wash.
+   --------------------------------------------------------------------------- */
+@theme {
+  /* raw brand constants — never used directly in markup */
+  --color-ink: #0A0A1A;
+  --color-cream: #F4F1E9;
+  --color-charcoal: #141414;
+  --color-accent: #F5A524;
+
+  /* neutrals — warm */
+  --color-ink-deep: #16120E;
+  --color-cream-soft: #FAF9F5;
+  --color-cream-tint: #F4F0E7;
+  --color-sand: #E8E3D8;
+  --color-sand-deep: #DDD5CA;
+  --color-stone: #C8C2B5;
+  --color-stone-deep: #ABA598;
+  --color-taupe: #A29C8F;
+  --color-bark: #5B5349;
+  --color-bark-deep: #3B332A;
+  --color-bark-dark: #211D17;
+
+  /* amber family */
+  --color-accent-deep: #94570E;
+  --color-accent-soft: #E7AE52;
+  --color-accent-wash: #F5E6C6;
+  --color-accent-mist: #F2DEB8;
+
+  /* semantic theme tokens — light */
+  --color-bg: #F4F1E9;
+  --color-bg-alt: #F4F0E7;
+  --color-bg-quiet: #E8E3D8;
+  --color-fg: #141414;
+  --color-fg-strong: #16120E;
+  --color-surface: #FFFFFF;
+  --color-surface-soft: #FAF9F5;
+  --color-wash: #F5E6C6;
+  --color-border: rgba(20, 20, 20, 0.12);
+  --color-muted: rgba(20, 20, 20, 0.68);
+
+  --font-display: "Zodiak", ui-serif, Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --text-display: clamp(2.25rem, 1.35rem + 3.9vw, 4.25rem);
+  --text-display--line-height: 1.05;
+
+  /* Oversized step numerals for the "How it works" sequence. Same slope as --text-display,
+     slightly lower floor and ceiling, so the hero h1 stays the largest type on the page. */
+  --text-step: clamp(2rem, 1.2rem + 3.9vw, 3.75rem);
+  --text-step--line-height: 0.9;
+}
+
+/* The single closing CTA band now uses ink-deep. Scoped variable re-mapping:
+   everything inside resolves surface/border/muted against ink-deep. */
+.dark-band {
+  --color-bg: #16120E;
+  --color-fg: #F4F1E9;
+  --color-surface: #12122A;
+  --color-border: rgba(244, 241, 233, 0.12);
+  --color-muted: rgba(244, 241, 233, 0.64);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+}
+
+/* The phone-frame chat demo shows the product's chat UI in WhatsApp's standard
+   LIGHT theme. Colors are WhatsApp's own light-theme palette. */
+.wa-screen {
+  background-color: #EFEAE2;
+  color: #111B21;
+}
+.wa-header {
+  background-color: #F0F2F5;
+  color: #111B21;
+  border-bottom: 1px solid #D1D7DB;
+}
+.wa-muted { color: #54656F; }
+.wa-bubble-bot {
+  background-color: #FFFFFF;
+  color: #111B21;
+}
+.wa-bubble-user {
+  background-color: #D9FDD3;
+  color: #111B21;
+}
+.wa-input { background-color: #F0F2F5; }
+
+/* Scope for the phone screen: semantic tokens are re-declared locally, so any
+   text-fg / text-muted / border-border utility inside the phone resolves
+   against the WhatsApp palette instead of the site tokens. */
+.wa-scope {
+  --color-fg: #111B21;
+  --color-fg-strong: #111B21;
+  --color-surface: #FFFFFF;
+  --color-border: #D1D7DB;
+  --color-muted: #54656F;
+  --color-wash: #D9FDD3;
+  background-color: #EFEAE2;
+  color: #111B21;
+}
+
+/* Light theme: amber text (#F5A524) on cream is 1.81:1 — unreadable. Use the
+   deeper amber (#94570E, 8.2:1 on cream) for text only. Backgrounds keep the
+   lighter amber so buttons still pop. */
+.text-accent {
+  --color-accent-text: var(--color-accent-deep);
+  color: var(--color-accent-text);
+}
+
+/* Soft top-lit hero wash on the cream canvas. */
+.hero-wash { background-image: radial-gradient(90% 38% at 50% 100%, #FFFFFF 0%, #F4F1E9 100%); }
+
+/* Soft card shadow used by white surfaces. */
+.shadow-card { box-shadow: 0 1px 2px rgba(20, 20, 20, 0.05), 0 8px 24px rgba(20, 20, 20, 0.06); }
+
+/* ---------------------------------------------------------------------------
+   Reveal-on-scroll. `.js` is added by an inline <head> script, so with JS
+   enabled elements start hidden and Motion fades them in; with JS disabled
+   (or Motion missing) the class is absent and content is visible immediately.
+   --------------------------------------------------------------------------- */
+.js [data-reveal] {
+  opacity: 0;
+}

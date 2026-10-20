@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mitra Pemasaran Conversa: komisi hingga 10% per bulan, selama klien aktif</title>
+  <meta name="description" content="Program mitra Conversa: dapat komisi hingga 10% dari pembayaran bulanan setiap klien yang Anda bawa, setiap bulan selama klien masih berlangganan, dengan pencairan setiap 3 bulan." />
+  <link rel="canonical" href="https://campaign.conversa-bot.com/partner/" />
+  <link rel="icon" href="../public/brand/conversa-logo-light.svg" type="image/svg+xml" />
+  <link rel="preload" href="../public/brand/zodiak-regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../public/brand/zodiak-bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../dist/styles.css" />
+  <style>[x-cloak]{display:none!important}</style>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="bg-bg text-fg font-sans antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:text-charcoal">Lewati ke konten</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header x-data="nav" class="sticky top-0 z-40 border-b border-border bg-bg">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
+      <a href="../" class="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded" aria-label="Beranda Conversa">
+        <img src="../public/brand/conversa-logo-light.svg" alt="" width="36" height="36" class="h-9 w-9" />
+        <span class="font-display text-2xl tracking-tight">conversa</span>
+      </a>
+
+      <nav class="hidden items-center gap-8 md:flex" aria-label="Utama">
+        <a href="#keuntungan" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Keuntungan</a>
+        <a href="#cara-kerja" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Cara kerja</a>
+        <a href="#potensi-komisi" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Potensi komisi</a>
+        <a href="#kenapa-yakin" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Kenapa yakin</a>
+        <a href="#faq" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#gabung" class="hidden min-h-11 items-center rounded bg-accent px-5 font-medium text-charcoal transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg sm:inline-flex">Gabung jadi mitra</a>
+        <button type="button" @click="toggle()" :aria-expanded="open" aria-controls="mobile-menu" class="inline-flex min-h-11 min-w-11 items-center justify-center rounded border border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:hidden" aria-label="Buka menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" x-show="open" x-cloak x-transition.opacity class="border-t border-border md:hidden">
+      <nav class="mx-auto max-w-6xl px-6 py-2" aria-label="Seluler">
+        <a href="#keuntungan" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Keuntungan</a>
+        <a href="#cara-kerja" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Cara kerja</a>
+        <a href="#potensi-komisi" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Potensi komisi</a>
+        <a href="#kenapa-yakin" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Kenapa yakin</a>
+        <a href="#faq" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">FAQ</a>
+        <a href="#gabung" @click="close()" class="mt-2 inline-flex min-h-11 items-center rounded bg-accent px-5 font-medium text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Gabung jadi mitra</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================ HERO ============================ -->
+    <section class="border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="max-w-3xl">
+          <p class="inline-flex items-center rounded-full border border-border bg-wash px-4 py-1.5 text-sm font-medium text-fg-strong">Program Mitra Pemasaran</p>
+          <h1 class="mt-6 font-display text-4xl text-fg sm:text-5xl">Bawa klien, dapat hingga 10% per bulan.</h1>
+          <p class="mt-6 text-lg text-muted">Anda dapatkan komisi hingga 10% dari pembayaran bulanan untuk setiap klien yang Anda bawa, setiap bulan, selama klien tersebut tetap berlangganan.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#gabung" class="inline-flex min-h-11 items-center rounded bg-accent px-6 font-medium text-charcoal transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg">Gabung jadi mitra</a>
+            <a href="#cara-kerja" class="inline-flex min-h-11 items-center rounded border border-border px-6 font-medium text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Lihat cara kerjanya</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= KEUNTUNGAN ========================= -->
+    <section id="keuntungan" class="scroll-mt-24 border-b border-border bg-bg-alt">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="mb-12 max-w-2xl">
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Keuntungan jadi mitra</h2>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <h3 class="font-display text-xl text-fg">Komisi berulang, bukan sekali bayar</h3>
+            <p class="mt-3 text-base text-muted">Komisi hingga 10% dari pembayaran bulanan klien masuk lagi setiap bulan, selama klien masih berlangganan.</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <h3 class="font-display text-xl text-fg">Tanpa target kuota</h3>
+            <p class="mt-3 text-base text-muted">Tidak ada kuota penjualan. Bawa klien dengan ritme Anda sendiri, satu pun tetap dihitung.</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <h3 class="font-display text-xl text-fg">Produk yang mudah dijelaskan</h3>
+            <p class="mt-3 text-base text-muted">Conversa adalah admin online 24 jam yang menjawab dari harga, jam kerja, dan dokumen klien sendiri, bukan mengarang jawaban.</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <h3 class="font-display text-xl text-fg">Calon klien bisa coba dulu</h3>
+            <p class="mt-3 text-base text-muted">Ada uji coba gratis, jadi calon klien bisa mencoba sebelum berlangganan. Anda tidak perlu berjualan dengan paksa.</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <h3 class="font-display text-xl text-fg">Materi penjualan tersedia</h3>
+            <p class="mt-3 text-base text-muted">Cukup arahkan calon klien ke halaman kampanye Conversa. Penjelasan produk, harga, dan uji coba sudah ada di sana.</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <h3 class="font-display text-xl text-fg">Pencairan terjadwal dan jelas</h3>
+            <p class="mt-3 text-base text-muted">Komisi bisa dicairkan setiap 3 bulan, yaitu bulan 1, 4, 7, dan 10. Jadwalnya jelas dari awal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= CARA KERJA ========================= -->
+    <section id="cara-kerja" class="scroll-mt-24 border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="mb-12 max-w-2xl">
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Cara kerja</h2>
+        </div>
+
+        <ol class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <li class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <p class="font-display text-2xl text-fg">1</p>
+            <h3 class="mt-2 font-display text-xl text-fg">Daftar jadi mitra</h3>
+            <p class="mt-3 text-base text-muted">Daftar jadi mitra lewat formulir di bawah.</p>
+          </li>
+          <li class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <p class="font-display text-2xl text-fg">2</p>
+            <h3 class="mt-2 font-display text-xl text-fg">Bagikan ke calon klien</h3>
+            <p class="mt-3 text-base text-muted">Bagikan link atau referensi Conversa ke calon klien Anda.</p>
+          </li>
+          <li class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <p class="font-display text-2xl text-fg">3</p>
+            <h3 class="mt-2 font-display text-xl text-fg">Klien mencoba, lalu berlangganan</h3>
+            <p class="mt-3 text-base text-muted">Klien mencoba uji coba gratis, lalu berlangganan.</p>
+          </li>
+          <li class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <p class="font-display text-2xl text-fg">4</p>
+            <h3 class="mt-2 font-display text-xl text-fg">Komisi masuk catatan mitra</h3>
+            <p class="mt-3 text-base text-muted">Komisi hingga 10% per bulan masuk catatan mitra Anda, dan bisa dicairkan setiap 3 bulan (bulan 1, 4, 7, 10).</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ======================= POTENSI KOMISI ======================= -->
+    <section id="potensi-komisi" class="scroll-mt-24 border-b border-border bg-bg-alt" x-data="partnerCalc">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="mb-12 max-w-2xl">
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Potensi komisi</h2>
+          <p class="mt-4 text-base text-muted">Harga resmi: Starter Rp399.000/bln, Growth Rp1.199.000/bln, Pro Rp3.299.000/bln. Komisi hingga 10% dari pembayaran bulanan yang benar-benar diterima.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <!-- Contoh hitung -->
+          <div class="space-y-6">
+            <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+              <h3 class="font-display text-xl text-fg">1 klien Growth</h3>
+              <p class="mt-3 text-base text-muted">Rp1.199.000/bln x 10% = <strong class="text-fg">Rp119.900/bln</strong></p>
+            </div>
+            <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+              <h3 class="font-display text-xl text-fg">5 klien Growth</h3>
+              <p class="mt-3 text-base text-muted">5 x Rp119.900 = <strong class="text-fg">Rp599.500/bln</strong></p>
+            </div>
+            <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+              <h3 class="font-display text-xl text-fg">10 klien campuran</h3>
+              <p class="mt-3 text-base text-muted">5 Starter + 3 Growth + 2 Pro.<br />
+              5 x Rp39.900 + 3 x Rp119.900 + 2 x Rp329.900<br />
+              = Rp199.500 + Rp359.700 + Rp659.800<br />
+              = <strong class="text-fg">Rp1.219.000/bln</strong></p>
+            </div>
+          </div>
+
+          <!-- Kalkulator -->
+          <div class="rounded-2xl border border-border bg-surface p-6 shadow-card sm:p-8">
+            <h3 class="font-display text-xl text-fg">Hitung komisi Anda</h3>
+            <form class="mt-6 space-y-5" @submit.prevent>
+              <div>
+                <label for="pc-starter" class="block text-base text-fg">Jumlah klien Starter</label>
+                <input id="pc-starter" name="starter" type="number" min="0" step="1" x-model.number="starter"
+                       class="mt-2 min-h-11 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" />
+              </div>
+              <div>
+                <label for="pc-growth" class="block text-base text-fg">Jumlah klien Growth</label>
+                <input id="pc-growth" name="growth" type="number" min="0" step="1" x-model.number="growth"
+                       class="mt-2 min-h-11 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" />
+              </div>
+              <div>
+                <label for="pc-pro" class="block text-base text-fg">Jumlah klien Pro</label>
+                <input id="pc-pro" name="pro" type="number" min="0" step="1" x-model.number="pro"
+                       class="mt-2 min-h-11 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" />
+              </div>
+            </form>
+            <div class="mt-6 rounded-lg border border-border bg-wash p-5" aria-live="polite">
+              <p class="text-base text-muted">Komisi per bulan</p>
+              <p class="font-display text-3xl text-fg" x-text="rp(monthly)">Rp119.900</p>
+              <p class="mt-4 text-base text-muted">Komisi per 3 bulan</p>
+              <p class="font-display text-2xl text-fg" x-text="rp(quarterly)">Rp359.700</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="mt-10 text-base text-muted">Komisi dihitung dari pembayaran bulanan yang benar-benar diterima. Angka pada halaman ini adalah ilustrasi dari harga resmi, bukan janji penghasilan.</p>
+      </div>
+    </section>
+
+  <!-- ========================= KENAPA YAKIN ======================== -->
+  <section id="kenapa-yakin" class="scroll-mt-24 border-b border-border">
+    <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+      <div class="mb-12 max-w-2xl">
+        <h2 class="font-display text-3xl text-fg sm:text-4xl">Kenapa bisa percaya</h2>
+        <p class="mt-4 text-base text-muted">Program mitra ini berdiri di atas produk yang sudah jalan dan aturan yang ditulis jelas. Semua poin di bawah bisa Anda cek sendiri.</p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+          <h3 class="font-display text-xl text-fg">Produk sudah aktif hari ini</h3>
+          <p class="mt-3 text-base text-muted">Semua fitur yang Anda tawarkan sudah berjalan: jawaban dari dokumen klien, WhatsApp, web chat, Telegram, dan integrasi Odoo. Calon klien bisa langsung mencoba lewat uji coba gratis.</p>
+        </div>
+        <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+          <h3 class="font-display text-xl text-fg">Harga dan komisi terbuka</h3>
+          <p class="mt-3 text-base text-muted">Harga paket dipublikasikan di halaman kampanye. Komisi Anda hingga 10% dari pembayaran bulanan yang benar-benar diterima, dihitung dari harga resmi, bukan angka janji.</p>
+        </div>
+        <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+          <h3 class="font-display text-xl text-fg">Pencatatan transparan</h3>
+          <p class="mt-3 text-base text-muted">Setiap pendaftaran lewat Anda tercatat dan diverifikasi tim Conversa. Anda selalu bisa menanyakan posisi klien dan komisi Anda lewat WhatsApp.</p>
+        </div>
+        <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+          <h3 class="font-display text-xl text-fg">Pencairan terjadwal</h3>
+          <p class="mt-3 text-base text-muted">Jendela pencairan jelas: setiap 3 bulan pada bulan 1, 4, 7, dan 10. Tidak ada syarat tersembunyi dan tidak ada minimum klien.</p>
+        </div>
+        <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+          <h3 class="font-display text-xl text-fg">Anda tidak berjualan sendirian</h3>
+          <p class="mt-3 text-base text-muted">Materi penjualan tersedia dari halaman kampanye, dan tim Conversa menemani saat calon klien butuh bukti lebih, mulai dari demo sampai uji coba.</p>
+        </div>
+        <div class="rounded-2xl border border-border bg-surface p-6 shadow-card">
+          <h3 class="font-display text-xl text-fg">Legalitas jelas</h3>
+          <p class="mt-3 text-base text-muted">Situs utama dan halaman kampanye Conversa terbuka untuk dicek kapan pun sebelum Anda memutuskan.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-2xl bg-wash p-6 sm:p-8">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p class="text-lg text-fg-strong">Masih ragu? Tanyakan langsung sebelum bergabung.</p>
+          <a href="https://wa.me/6281807177764?text=Halo%20Conversa%2C%20saya%20ingin%20bertanya%20tentang%20program%20mitra%20pemasaran." target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center rounded bg-accent px-6 font-medium text-charcoal transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg">Chat tim Conversa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ============================ FAQ ============================== -->
+    <section id="faq" class="scroll-mt-24 border-b border-border">
+      <div class="mx-auto max-w-3xl px-6 py-16 lg:py-24" x-data="accordion">
+        <div class="mb-10">
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Pertanyaan yang sering diajukan</h2>
+        </div>
+
+        <div class="divide-y divide-border border-y border-border">
+          <div>
+            <h3>
+              <button type="button" id="faq-q-0" @click="toggle(0)" :aria-expanded="isOpen(0)" aria-controls="faq-a-0" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Berapa besar komisinya?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(0) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(0)" x-cloak id="faq-a-0" role="region" aria-labelledby="faq-q-0"><p class="pb-6 text-lg text-muted">hingga 10% dari pembayaran bulanan klien, selama klien tetap berlangganan.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-1" @click="toggle(1)" :aria-expanded="isOpen(1)" aria-controls="faq-a-1" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Kapan komisi bisa dicairkan?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(1) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(1)" x-cloak id="faq-a-1" role="region" aria-labelledby="faq-q-1"><p class="pb-6 text-lg text-muted">Setiap 3 bulan, yaitu bulan 1, 4, 7, 10.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-2" @click="toggle(2)" :aria-expanded="isOpen(2)" aria-controls="faq-a-2" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Apakah ada target penjualan?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(2) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(2)" x-cloak id="faq-a-2" role="region" aria-labelledby="faq-q-2"><p class="pb-6 text-lg text-muted">Tidak ada. Anda bekerja dengan ritme sendiri.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-3" @click="toggle(3)" :aria-expanded="isOpen(3)" aria-controls="faq-a-3" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Kapan klien mulai dihitung untuk saya?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(3) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(3)" x-cloak id="faq-a-3" role="region" aria-labelledby="faq-q-3"><p class="pb-6 text-lg text-muted">Setelah klien menyelesaikan masa uji coba dan mulai berlangganan.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-4" @click="toggle(4)" :aria-expanded="isOpen(4)" aria-controls="faq-a-4" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Bagaimana klien tercatat atas nama saya?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(4) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(4)" x-cloak id="faq-a-4" role="region" aria-labelledby="faq-q-4"><p class="pb-6 text-lg text-muted">Lewat pendaftaran mitra Anda; tim Conversa yang memverifikasi dan mencatat klien tersebut untuk Anda.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-5" @click="toggle(5)" :aria-expanded="isOpen(5)" aria-controls="faq-a-5" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Apa yang terjadi kalau klien berhenti?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(5) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(5)" x-cloak id="faq-a-5" role="region" aria-labelledby="faq-q-5"><p class="pb-6 text-lg text-muted">Komisi dari klien tersebut berhenti; komisi dari klien lain tetap berjalan.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GABUNG: REGISTRATION FORM =============== -->
+    <section id="gabung" class="scroll-mt-24 border-b border-border bg-bg-alt">
+      <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-16 lg:grid-cols-12 lg:py-24">
+        <div class="lg:col-span-5 lg:self-center">
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Gabung jadi mitra</h2>
+          <p class="mt-4 text-lg text-muted">Isi formulir ini dan tim Conversa akan menghubungi Anda lewat WhatsApp untuk menyelesaikan pendaftaran mitra.</p>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div x-data="partnerForm" class="rounded-2xl border border-border bg-surface shadow-card p-6 sm:p-8">
+            <form x-show="!submitted" @submit.prevent="submit()" novalidate class="space-y-5">
+              <div>
+                <label for="pf-name" class="block text-base text-fg">Nama</label>
+                <input id="pf-name" name="name" type="text" autocomplete="name" x-model="name" :aria-invalid="errors.name" :aria-describedby="errors.name ? 'pf-name-error' : null"
+                       class="mt-2 min-h-11 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" />
+                <p x-show="errors.name" x-cloak id="pf-name-error" class="mt-2 text-base text-fg font-medium">Mohon isi nama Anda.</p>
+              </div>
+              <div>
+                <label for="pf-whatsapp" class="block text-base text-fg">Nomor WhatsApp</label>
+                <input id="pf-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" x-model="whatsapp" :aria-invalid="errors.whatsapp" :aria-describedby="errors.whatsapp ? 'pf-whatsapp-error' : null"
+                       class="mt-2 min-h-11 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" />
+                <p x-show="errors.whatsapp" x-cloak id="pf-whatsapp-error" class="mt-2 text-base text-fg font-medium">Mohon isi nomor WhatsApp Anda.</p>
+              </div>
+              <div>
+                <label for="pf-email" class="block text-base text-fg">Email (opsional)</label>
+                <input id="pf-email" name="email" type="email" autocomplete="email" x-model="email"
+                       class="mt-2 min-h-11 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" />
+              </div>
+              <div>
+                <label for="pf-type" class="block text-base text-fg">Jenis mitra</label>
+                <select id="pf-type" name="partner_type" x-model="partnerType"
+                        class="mt-2 min-h-11 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                  <option value="">Pilih jenis mitra Anda</option>
+                  <option>Konsultan</option>
+                  <option>Agensi</option>
+                  <option>Kreator konten</option>
+                  <option>Komunitas</option>
+                  <option>Lainnya</option>
+                </select>
+              </div>
+              <div>
+                <label for="pf-message" class="block text-base text-fg">Pesan (opsional)</label>
+                <textarea id="pf-message" name="message" rows="3" x-model="message"
+                          class="mt-2 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"></textarea>
+              </div>
+              <button type="submit" :disabled="sending" class="inline-flex min-h-11 items-center justify-center rounded bg-accent px-6 font-medium text-charcoal transition-opacity hover:opacity-90 disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg">
+                <span x-text="sending ? 'Mengirim...' : 'Gabung jadi mitra'">Gabung jadi mitra</span>
+              </button>
+            </form>
+
+            <div x-show="submitted" x-cloak role="status" class="py-6">
+              <h3 x-ref="successTitle" tabindex="-1" class="font-display text-2xl text-fg focus-visible:outline-none">Terima kasih. Pendaftaran mitra Anda kami terima.</h3>
+              <p class="mt-3 text-lg text-muted">Tim Conversa akan memverifikasi data Anda dan menghubungi lewat WhatsApp.</p>
+              <p x-show="fallbackUrl" x-cloak class="mt-4 text-base text-muted">
+                <a :href="fallbackUrl" target="_blank" rel="noopener noreferrer" class="rounded underline transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Tidak terkirim otomatis? Lanjutkan via WhatsApp</a>
+              </p>
+              <button type="button" @click="reset()" class="mt-6 inline-flex min-h-11 items-center rounded border border-border px-5 text-base text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Kirim lagi</button>
+            </div>
+            <p class="mt-6 text-base text-muted">Data dikirim ke tim Conversa untuk verifikasi mitra.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER =========================== -->
+  <footer class="bg-bg">
+    <div class="mx-auto max-w-6xl px-6 py-12">
+      <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+        <div>
+          <a href="../" class="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded" aria-label="Beranda Conversa">
+            <img src="../public/brand/conversa-logo-light.svg" alt="" width="32" height="32" class="h-8 w-8" />
+            <span class="font-display text-xl tracking-tight">conversa</span>
+          </a>
+          <p class="mt-4 max-w-xs text-base text-muted">Admin online untuk WhatsApp, web, Telegram, dan Odoo. Menjawab chat pelanggan memakai harga dan aturan Anda, mengalihkan ke tim saat dibutuhkan.</p>
+        </div>
+
+        <nav class="flex flex-col gap-3 text-base" aria-label="Tautan situs">
+          <p class="text-sm font-medium uppercase tracking-wide text-muted" id="footer-nav-pages">Halaman</p>
+          <a href="#keuntungan" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Keuntungan</a>
+          <a href="#cara-kerja" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Cara kerja</a>
+          <a href="#potensi-komisi" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Potensi komisi</a>
+          <a href="#faq" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">FAQ</a>
+          <a href="/partner/" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded" aria-current="page">Mitra</a>
+        </nav>
+
+        <nav class="flex flex-col gap-3 text-base" aria-label="Tautan lain">
+          <p class="text-sm font-medium uppercase tracking-wide text-muted" id="footer-nav-company">Perusahaan</p>
+          <a href="https://conversa-bot.com" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Situs utama</a>
+          <a href="https://conversa-bot.com/register" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Daftar</a>
+          <a href="https://conversa-bot.com/terms" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Ketentuan</a>
+          <a href="https://conversa-bot.com/privacy" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Privasi</a>
+        </nav>
+
+        <div class="flex flex-col gap-3">
+          <a href="https://wa.me/6281807177764?text=Halo%20Conversa%2C%20saya%20ingin%20bertanya%20tentang%20program%20mitra%20Conversa." target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-2 rounded border border-border px-5 text-base text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2A9.88 9.88 0 0 0 2.16 11.88c0 1.74.46 3.45 1.32 4.95L2 22l5.3-1.39a9.9 9.9 0 0 0 4.74 1.21h.01A9.88 9.88 0 0 0 12.04 2Zm5.8 14.12c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.03.24-3.47-.72-2.94-1.16-4.8-4.2-4.95-4.4-.14-.2-1.17-1.57-1.17-3 0-1.42.74-2.12 1-2.41.26-.29.57-.36.76-.36h.55c.17 0 .41-.07.63.48.24.58.81 2 .88 2.15.07.14.12.31.02.5-.1.2-.15.32-.29.5-.15.17-.31.38-.44.51-.14.14-.29.3-.12.59.17.29.74 1.23 1.6 1.99 1.1.98 2.03 1.28 2.32 1.43.29.15.46.12.63-.07.17-.2.72-.84.91-1.13.19-.29.39-.24.65-.14.26.1 1.67.79 1.95.93.29.14.48.21.55.33.07.11.07.67-.17 1.35Z"/></svg>Hubungi kami</a>
+        </div>
+      </div>
+      <p class="mt-10 text-base text-muted">© 2026 Conversa · <a href="../" class="underline transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Program ini bagian dari halaman kampanye Conversa</a></p>
+    </div>
+  </footer>
+
+<!-- ===================== Floating WhatsApp button (FAB) ===================== -->
+  <div class="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
+    <a href="https://wa.me/6281807177764?text=Halo%20Conversa%2C%20saya%20ingin%20bertanya%20tentang%20program%20mitra%20pemasaran."
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Chat tim mitra kami di WhatsApp"
+       class="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform motion-safe:hover:scale-110 motion-safe:active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.002 3.2C8.94 3.2 3.2 8.94 3.2 16c0 2.26.59 4.47 1.71 6.42L3.2 28.8l6.55-1.68A12.77 12.77 0 0 0 16 28.8h.002c7.06 0 12.8-5.74 12.8-12.8s-5.74-12.8-12.8-12.8Zm0 23.36h-.002c-1.94 0-3.85-.52-5.51-1.51l-.4-.24-4.09 1.05 1.09-3.99-.26-.41a10.53 10.53 0 0 1-1.61-5.66c0-5.87 4.78-10.64 10.66-10.64 2.84 0 5.52 1.11 7.53 3.12a10.58 10.58 0 0 1 3.12 7.53c0 5.87-4.78 10.65-10.64 10.65Zm5.84-7.97c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.72.16-.21.32-.83 1.04-1.02 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.59-1.89-1.78-2.21-.19-.32-.02-.5.14-.66.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.53-.72-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.65 0 1.56 1.14 3.07 1.3 3.28.16.21 2.24 3.42 5.42 4.8.76.33 1.35.52 1.81.67.76.24 1.46.21 2 .13.61-.09 1.89-.77 2.15-1.52.27-.75.27-1.38.19-1.52-.08-.13-.29-.21-.61-.37Z"/></svg>
+      <span class="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded border border-border bg-bg px-3 py-1.5 text-sm font-medium text-fg shadow-card opacity-0 transition-opacity duration-200 group-hover:opacity-100 md:block"
+            role="tooltip">Chat tim mitra</span>
+    </a>
+  </div>
+
+  <script src="../src/app.js" defer></script>
+  <script src="../public/vendor/alpine.min.js" defer></script>
+</body>
+</html>

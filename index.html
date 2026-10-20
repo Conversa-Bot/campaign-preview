@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conversa: admin online 24 jam untuk WhatsApp, web, Telegram, Odoo</title>
+  <meta name="description" content="Conversa adalah admin online untuk bisnis Anda. Menjawab chat pelanggan dalam hitungan detik memakai harga dan aturan Anda, mengalihkan ke tim saat dibutuhkan. Coba gratis 3 hari." />
+  <link rel="canonical" href="https://campaign.conversa-bot.com/" />
+  <link rel="alternate" hreflang="id" href="https://campaign.conversa-bot.com/" />
+  <link rel="alternate" hreflang="en" href="https://campaign.conversa-bot.com/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://campaign.conversa-bot.com/" />
+  <link rel="icon" href="public/brand/conversa-logo-light.svg" type="image/svg+xml" />
+  <link rel="preload" href="public/brand/zodiak-regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="public/brand/zodiak-bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="dist/styles.css" />
+  <style>[x-cloak]{display:none!important}</style>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="bg-bg text-fg font-sans antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:text-charcoal">Lewati ke konten</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header x-data="nav" class="sticky top-0 z-40 border-b border-border bg-bg">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
+      <a href="./" class="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded" aria-label="Beranda Conversa">
+        <img src="public/brand/conversa-logo-light.svg" alt="" width="36" height="36" class="h-9 w-9" />
+        <span class="font-display text-2xl tracking-tight">conversa</span>
+      </a>
+
+      <nav class="hidden items-center gap-8 md:flex" aria-label="Utama">
+        <a href="#features" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Fitur</a>
+        <a href="#how-it-works" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Cara kerja</a>
+        <a href="#case-studies" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Simulasi</a>
+        <a href="#pricing" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Harga</a>
+        <a href="#faq" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <div class="flex items-center rounded border border-border text-base" role="group" aria-label="Bahasa">
+          <a href="en/" class="inline-flex min-h-11 min-w-11 items-center justify-center px-3 py-2 text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">EN</a>
+          <span class="inline-flex min-h-11 min-w-11 items-center justify-center px-3 py-2 bg-wash text-fg-strong" aria-current="true">ID</span>
+        </div>
+        <a href="https://conversa-bot.com/register" class="hidden min-h-11 items-center rounded bg-accent px-5 font-medium text-charcoal transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg sm:inline-flex">Coba gratis</a>
+        <button type="button" @click="toggle()" :aria-expanded="open" aria-controls="mobile-menu" class="inline-flex min-h-11 min-w-11 items-center justify-center rounded border border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:hidden" aria-label="Buka menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" x-show="open" x-cloak x-transition.opacity class="border-t border-border md:hidden">
+      <nav class="mx-auto max-w-6xl px-6 py-2" aria-label="Seluler">
+        <a href="#features" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Fitur</a>
+        <a href="#how-it-works" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Cara kerja</a>
+        <a href="#case-studies" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Simulasi</a>
+        <a href="#pricing" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Harga</a>
+        <a href="#faq" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">FAQ</a>
+        <a href="https://conversa-bot.com/register" @click="close()" class="mt-2 inline-flex min-h-11 items-center rounded bg-accent px-5 font-medium text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Coba gratis</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================ HERO ============================ -->
+    <section class="hero-wash border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="mx-auto max-w-3xl text-center" data-reveal>
+          <p class="inline-flex items-center rounded-full border border-border px-4 py-1.5 text-sm uppercase tracking-[0.22em] text-muted">Admin online untuk bisnis Anda</p>
+          <h1 class="mt-6 font-display text-balance text-fg">
+            <span class="block text-display">Admin online 24 jam.</span>
+            <span class="block text-xl text-muted sm:text-2xl">Tanpa jeda, tanpa nanti.</span>
+          </h1>
+          <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted">
+            Conversa menjawab chat pelanggan dalam hitungan detik, memakai harga dan aturan bisnis Anda. Lalu mengalihkan ke tim Anda saat dibutuhkan.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
+            <a href="https://conversa-bot.com/register" class="inline-flex min-h-11 items-center justify-center rounded bg-accent px-6 font-medium text-charcoal transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg">Coba gratis</a>
+            <a href="https://wa.me/6281807177764?text=Halo%20Conversa%2C%20saya%20ingin%20bertanya%20tentang%20Conversa%20untuk%20bisnis%20saya." target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center justify-center gap-2 rounded border border-border px-6 font-medium text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2A9.88 9.88 0 0 0 2.16 11.88c0 1.74.46 3.45 1.32 4.95L2 22l5.3-1.39a9.9 9.9 0 0 0 4.74 1.21h.01A9.88 9.88 0 0 0 12.04 2Zm5.8 14.12c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.03.24-3.47-.72-2.94-1.16-4.8-4.2-4.95-4.4-.14-.2-1.17-1.57-1.17-3 0-1.42.74-2.12 1-2.41.26-.29.57-.36.76-.36h.55c.17 0 .41-.07.63.48.24.58.81 2 .88 2.15.07.14.12.31.02.5-.1.2-.15.32-.29.5-.15.17-.31.38-.44.51-.14.14-.29.3-.12.59.17.29.74 1.23 1.6 1.99 1.1.98 2.03 1.28 2.32 1.43.29.15.46.12.63-.07.17-.2.72-.84.91-1.13.19-.29.39-.24.65-.14.26.1 1.67.79 1.95.93.29.14.48.21.55.33.07.11.07.67-.17 1.35Z"/></svg>Hubungi kami</a>
+          </div>
+          <p class="mt-5 text-sm text-muted">Uji coba 3 hari · untuk 2 pelanggan · tanpa kartu</p>
+        </div>
+
+        <!-- Demo chat — bingkai bergaya ponsel di tengah, tinggi obrolan tetap (tanpa pergeseran tata letak).
+             Pemilih skenario di atas ponsel mengganti bisnis, kanal, dan transkrip di dalam demo. -->
+        <div class="mt-12 lg:mt-16" data-reveal>
+          <div class="mx-auto w-full max-w-md lg:max-w-5xl" x-data="chatDemo" x-init="init()">
+            <div class="lg:flex lg:items-center lg:justify-center lg:gap-10">
+            <!-- Pemilih skenario (peran tab; panah kiri/kanan juga berfungsi).
+                 Seluler: kisi 2 kolom × 3 baris di atas ponsel. Desktop (lg): daftar satu kolom di KANAN ponsel. -->
+            <div class="mb-6 lg:order-2 lg:mb-0 lg:w-72 lg:shrink-0">
+              <p class="text-sm uppercase tracking-[0.22em] text-muted">Contoh percakapan nyata</p>
+              <h3 class="mt-2 font-display text-2xl text-fg">Pilih jenis bisnis Anda</h3>
+              <div class="mt-4 grid grid-cols-2 gap-2 lg:mt-6 lg:grid-cols-1 lg:gap-3" role="tablist" aria-label="Skenario contoh" @keydown="onScenarioKeydown($event)">
+                <button type="button" role="tab" id="demo-tab-0" aria-controls="demo-panel" @click="selectScenario(0)" :aria-selected="isScenarioActive(0)" :tabindex="isScenarioActive(0) ? 0 : -1" :class="isScenarioActive(0) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 w-full rounded-lg border px-4 py-2 text-left text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-14">Klinik &amp; janji temu</button>
+                <button type="button" role="tab" id="demo-tab-1" aria-controls="demo-panel" @click="selectScenario(1)" :aria-selected="isScenarioActive(1)" :tabindex="isScenarioActive(1) ? 0 : -1" :class="isScenarioActive(1) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 w-full rounded-lg border px-4 py-2 text-left text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-14">Ritel &amp; e-commerce</button>
+                <button type="button" role="tab" id="demo-tab-2" aria-controls="demo-panel" @click="selectScenario(2)" :aria-selected="isScenarioActive(2)" :tabindex="isScenarioActive(2) ? 0 : -1" :class="isScenarioActive(2) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 w-full rounded-lg border px-4 py-2 text-left text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-14">Manufaktur · Odoo</button>
+                <button type="button" role="tab" id="demo-tab-3" aria-controls="demo-panel" @click="selectScenario(3)" :aria-selected="isScenarioActive(3)" :tabindex="isScenarioActive(3) ? 0 : -1" :class="isScenarioActive(3) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 w-full rounded-lg border px-4 py-2 text-left text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-14">Layanan publik</button>
+                <button type="button" role="tab" id="demo-tab-4" aria-controls="demo-panel" @click="selectScenario(4)" :aria-selected="isScenarioActive(4)" :tabindex="isScenarioActive(4) ? 0 : -1" :class="isScenarioActive(4) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 w-full rounded-lg border px-4 py-2 text-left text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-14">Umroh &amp; haji</button>
+                <button type="button" role="tab" id="demo-tab-5" aria-controls="demo-panel" @click="selectScenario(5)" :aria-selected="isScenarioActive(5)" :tabindex="isScenarioActive(5) ? 0 : -1" :class="isScenarioActive(5) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 w-full rounded-lg border px-4 py-2 text-left text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-14">Influencer</button>
+              </div>
+            </div>
+            <div class="mx-auto w-full max-w-md rounded-3xl border border-border bg-surface shadow-card p-3 sm:p-4 lg:mx-0 lg:shrink-0">
+              <div class="flex items-center justify-center gap-1.5 pb-3" aria-hidden="true">
+                <span class="h-1.5 w-1.5 rounded-full bg-fg"></span>
+                <span class="h-1.5 w-14 rounded-full bg-fg"></span>
+              </div>
+              <div id="demo-panel" role="tabpanel" :aria-labelledby="'demo-tab-' + active" tabindex="0" class="phone-screen wa-scope wa-screen overflow-hidden rounded-2xl border border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <div class="wa-header flex items-center gap-3 border-b border-border px-4 py-3">
+                  <span class="wa-avatar flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white font-display text-lg text-[#111B21]" aria-hidden="true" x-text="activeScenario.business.charAt(0)">K</span>
+                  <div class="min-w-0 flex-1">
+                    <p class="truncate font-display text-lg leading-none text-[#111B21]" x-text="activeScenario.business">Klinik Gigi Ceria</p>
+                    <p class="wa-muted mt-1.5 flex items-center gap-2 text-sm"><span class="h-1.5 w-1.5 rounded-full bg-[#54656F]" aria-hidden="true"></span>membalas seketika</p>
+                  </div>
+                  <span class="wa-muted shrink-0 rounded-full border border-[#D1D7DB] px-2.5 py-1 text-xs" x-text="activeScenario.channel">WhatsApp</span>
+                </div>
+
+                <div x-ref="chatbox" class="h-[520px] space-y-3 overflow-y-auto p-4 lg:h-[660px]" aria-hidden="true">
+                  <p class="wa-muted pb-1 text-center text-sm" aria-hidden="true">Hari ini</p>
+                  <template x-for="(m, i) in visible()" :key="i">
+                    <div class="flex" :class="m.from === 'user' ? 'justify-end' : 'justify-start'">
+                      <div class="max-w-[82%] rounded-2xl px-4 py-2.5 text-base leading-relaxed"
+                           :class="m.from === 'user' ? 'wa-bubble-user rounded-br-sm' : 'wa-bubble-bot rounded-bl-sm'">
+                        <span x-text="m.text"></span>
+                      </div>
+                    </div>
+                  </template>
+                  <div class="flex justify-start" x-show="typing" x-cloak>
+                    <div class="wa-bubble-bot flex items-center gap-1.5 rounded-2xl rounded-bl-sm px-4 py-3.5">
+                      <span class="h-2 w-2 animate-pulse rounded-full bg-[#8696A0]"></span>
+                      <span class="h-2 w-2 animate-pulse rounded-full bg-[#8696A0]"></span>
+                      <span class="h-2 w-2 animate-pulse rounded-full bg-[#8696A0]"></span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            </div>
+          </div>
+          <p class="mx-auto mt-5 max-w-md text-center text-sm text-muted" x-text="activeScenario.caption">Jawaban diambil dari jam buka dan harga klinik.</p>
+          <!-- Transkrip percakapan yang sama, hanya untuk pembaca layar -->
+          <p class="sr-only" x-text="activeScenario.srDescription">Contoh percakapan klinik gigi: harga scaling dan jadwal Sabtu.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CAPABILITY TABS ======================= -->
+    <section class="border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24" x-data="tabs(0)">
+        <div class="mb-10 max-w-2xl" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Yang bisa dilakukannya untuk Anda</h2>
+        </div>
+
+        <div class="flex flex-wrap gap-2" role="tablist" aria-label="Kemampuan" @keydown="onKeydown($event)">
+          <button type="button" role="tab" id="cap-tab-0" aria-controls="cap-panel-0" @click="select(0)" :aria-selected="isActive(0)" :tabindex="isActive(0) ? 0 : -1" :class="isActive(0) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Menjawab pertanyaan</button>
+          <button type="button" role="tab" id="cap-tab-1" aria-controls="cap-panel-1" @click="select(1)" :aria-selected="isActive(1)" :tabindex="isActive(1) ? 0 : -1" :class="isActive(1) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Menggerakkan prospek</button>
+          <button type="button" role="tab" id="cap-tab-2" aria-controls="cap-panel-2" @click="select(2)" :aria-selected="isActive(2)" :tabindex="isActive(2) ? 0 : -1" :class="isActive(2) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Menjadwalkan pertemuan</button>
+          <button type="button" role="tab" id="cap-tab-3" aria-controls="cap-panel-3" @click="select(3)" :aria-selected="isActive(3)" :tabindex="isActive(3) ? 0 : -1" :class="isActive(3) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Menumbuhkan penjualan</button>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-12">
+          <div class="lg:col-span-5 lg:self-center">
+            <div x-show="isActive(0)" x-cloak role="tabpanel" id="cap-panel-0" aria-labelledby="cap-tab-0" tabindex="0" class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">
+              <p class="text-lg text-muted">Dijawab dari harga dan kebijakan Anda sendiri, bukan tebakan.</p>
+            </div>
+            <div x-show="isActive(1)" x-cloak role="tabpanel" id="cap-panel-1" aria-labelledby="cap-tab-1" tabindex="0" class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">
+              <p class="text-lg text-muted">Detail penting dicatat; pertanyaan penyaring prospek diajukan untuk Anda.</p>
+            </div>
+            <div x-show="isActive(2)" x-cloak role="tabpanel" id="cap-panel-2" aria-labelledby="cap-tab-2" tabindex="0" class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">
+              <p class="text-lg text-muted">Slot kosong ditawarkan; pertemuan dikonfirmasi ke pelanggan.</p>
+            </div>
+            <div x-show="isActive(3)" x-cloak role="tabpanel" id="cap-panel-3" aria-labelledby="cap-tab-3" tabindex="0" class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">
+              <p class="text-lg text-muted">Menindaklanjuti dan mengingat setiap pelanggan, tidak ada yang pergi diam-diam.</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="rounded-2xl border border-border bg-surface p-6 sm:p-8">
+              <div x-show="isActive(0)" x-cloak class="space-y-3">
+                <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">Apakah kirim ke Puchong?</p>
+                <p class="w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Ya, besok sampai. Gratis di atas minimum pesanan. Mau pesan?</p>
+              </div>
+              <div x-show="isActive(1)" x-cloak class="space-y-3">
+                <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">Butuh penawaran untuk 30 kursi.</p>
+                <p class="w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Siap. Ke kota mana, kapan dibutuhkan? Saya teruskan ke tim.</p>
+              </div>
+              <div x-show="isActive(2)" x-cloak class="space-y-3">
+                <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">Bisa bertemu minggu ini?</p>
+                <p class="w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Kamis 15.00 atau Jumat 10.00 masih kosong. Pengingat menyusul sehari sebelumnya.</p>
+              </div>
+              <div x-show="isActive(3)" x-cloak class="space-y-3">
+                <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">Saya pikir-pikir dulu.</p>
+                <p class="w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Tentu. Detailnya tersimpan. Nanti tinggal lanjut dari titik terakhir.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= HOW IT WORKS ======================== -->
+    <section id="how-it-works" class="scroll-mt-24 border-b border-border bg-bg-alt">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="mb-12 max-w-2xl" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Cara kerjanya</h2>
+          <p class="mt-4 text-lg text-muted">Tiga langkah. Tanpa kode.</p>
+        </div>
+
+        <ol class="border-l border-border"> <!-- garis penghubung memanjang sepanjang daftar -->
+          <!-- Langkah 1: angka di garis penghubung, konten di kanan -->
+          <li class="relative grid grid-cols-1 gap-6 py-8 pl-6 lg:grid-cols-12 lg:gap-x-10 lg:py-12">
+            <div class="lg:col-span-2">
+              <span aria-hidden="true" class="font-display text-step leading-none text-fg">1</span>
+            </div>
+            <div class="lg:col-span-4">
+              <h3 class="font-display text-2xl text-fg">Hubungkan saluran</h3>
+              <p class="mt-3 text-lg text-muted">Tambahkan web chat, WhatsApp, Telegram, atau Odoo. Mulai dari satu, sisanya menyusul.</p>
+            </div>
+            <div class="max-w-xl lg:col-span-5 lg:col-start-8 lg:max-w-none">
+              <div class="rounded-xl border border-border bg-surface p-5">
+                <p class="text-base text-muted">Saluran</p>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-border px-4 py-2 text-base text-fg">Web chat</span>
+                  <span class="rounded-full border border-border px-4 py-2 text-base text-fg">WhatsApp</span>
+                  <span class="rounded-full border border-border px-4 py-2 text-base text-fg">Telegram</span>
+                  <span class="rounded-full border border-border px-4 py-2 text-base text-fg">Odoo</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Langkah 2: konten digeser satu kolom — urutannya menekuk, garisnya tetap -->
+          <li class="relative grid grid-cols-1 gap-6 py-8 pl-6 lg:grid-cols-12 lg:gap-x-10 lg:py-12">
+            <div class="lg:col-span-2">
+              <span aria-hidden="true" class="font-display text-step leading-none text-fg">2</span>
+            </div>
+            <div class="lg:col-span-4 lg:col-start-4">
+              <h3 class="font-display text-2xl text-fg">Ajari ia</h3>
+              <p class="mt-3 text-lg text-muted">Berikan harga, jam buka, dan dokumen Anda. Dari situlah jawabannya.</p>
+            </div>
+            <div class="max-w-xl lg:col-span-4 lg:col-start-9 lg:max-w-none">
+              <div class="rounded-xl border border-border bg-surface p-5">
+                <p class="text-base text-muted">Dokumen Anda</p>
+                <div class="mt-3 space-y-2">
+                  <p class="rounded border border-border px-4 py-2.5 text-base text-fg">Daftar harga</p>
+                  <p class="rounded border border-border px-4 py-2.5 text-base text-fg">Jam buka</p>
+                  <p class="rounded border border-border px-4 py-2.5 text-base text-fg">Pertanyaan umum</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Langkah 3: angka di garis penghubung, konten di kanan -->
+          <li class="relative grid grid-cols-1 gap-6 py-8 pl-6 lg:grid-cols-12 lg:gap-x-10 lg:py-12">
+            <div class="lg:col-span-2">
+              <span aria-hidden="true" class="font-display text-step leading-none text-fg">3</span>
+            </div>
+            <div class="lg:col-span-4">
+              <h3 class="font-display text-2xl text-fg">Nyalakan</h3>
+              <p class="mt-3 text-lg text-muted">Pertanyaan pelanggan langsung dijawab; yang sulit dialihkan ke tim Anda.</p>
+            </div>
+            <div class="max-w-xl lg:col-span-5 lg:col-start-8 lg:max-w-none">
+              <div class="rounded-xl border border-border bg-surface p-5">
+                <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">Bisa cek status pengiriman saya?</p>
+                <p class="mt-2 w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Belum yakin soal itu. Saya carikan rekan untuk Anda.</p>
+                <p class="mt-2 text-base text-muted">Dialihkan ke tim Anda, riwayat disertakan.</p>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== FEATURES (merged) ======================= -->
+    <section id="features" class="scroll-mt-24 border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="mb-12 max-w-2xl" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Yang Anda dapatkan</h2>
+        </div>
+
+        <div class="divide-y divide-border border-y border-border">
+          <div class="grid grid-cols-1 gap-2 py-6 md:grid-cols-12 md:items-baseline">
+            <p class="font-display text-2xl text-fg md:col-span-5">Satu ingatan untuk semua saluran</p>
+            <p class="text-base text-muted md:col-span-7">Web chat, WhatsApp, Telegram, Odoo: lanjut antarkanal tanpa mengulang cerita.</p>
+          </div>
+          <div class="grid grid-cols-1 gap-2 py-6 md:grid-cols-12 md:items-baseline">
+            <p class="font-display text-2xl text-fg md:col-span-5">Mengingat setiap pelanggan</p>
+            <p class="text-base text-muted md:col-span-7">Riwayat lengkap tersimpan; balasan selalu nyambung, berbulan-bulan pun.</p>
+          </div>
+          <div class="grid grid-cols-1 gap-2 py-6 md:grid-cols-12 md:items-baseline">
+            <p class="font-display text-2xl text-fg md:col-span-5">Menjawab dari dokumen Anda</p>
+            <p class="text-base text-muted md:col-span-7">Harga, jam buka, dan kebijakan dijawab dari dokumen Anda, bukan tebakan.</p>
+          </div>
+          <div class="grid grid-cols-1 gap-2 py-6 md:grid-cols-12 md:items-baseline">
+            <p class="font-display text-2xl text-fg md:col-span-5">Mengalihkan ke manusia</p>
+            <p class="text-base text-muted md:col-span-7">Saat ragu, percakapan diteruskan ke tim Anda beserta konteksnya.</p>
+          </div>
+          <div class="grid grid-cols-1 gap-2 py-6 md:grid-cols-12 md:items-baseline">
+            <p class="font-display text-2xl text-fg md:col-span-5">Data Anda tetap milik Anda</p>
+            <p class="text-base text-muted md:col-span-7">Akses hanya-baca; Anda tentukan apa yang boleh dilihat; tak ada yang disalin keluar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== WORKED EXAMPLES ======================= -->
+    <!-- Simulation examples built only from features that are live today.
+         Explicitly not customer results: no real customers, no invented
+         metrics, no outcome numbers. -->
+    <section id="case-studies" class="scroll-mt-24 border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24" x-data="cases(0)">
+        <div class="mx-auto max-w-3xl text-center" data-reveal>
+          <p class="inline-flex items-center rounded-full bg-wash px-4 py-1.5 text-sm font-medium text-fg-strong">Simulasi penerapan: bukan hasil pelanggan</p>
+          <h2 class="mt-6 font-display text-3xl text-fg sm:text-4xl">Beragam bisnis, satu admin online</h2>
+          <p class="mt-4 text-base text-muted">Satu asisten, disesuaikan dengan bisnis Anda.</p>
+        </div>
+
+        <!-- Tab bar; the active tab is highlighted (Alpine `cases`) -->
+        <div class="mt-10 flex flex-wrap justify-center gap-3" role="tablist" aria-label="Simulasi penerapan" @keydown="onKeydown($event)">
+          <button type="button" role="tab" id="case-tab-0" aria-controls="case-panel-0" @click="select(0)" :aria-selected="isActive(0)" :tabindex="isActive(0) ? 0 : -1" :class="isActive(0) ? 'border-accent bg-wash text-fg' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Ritel &amp; e-commerce</button>
+          <button type="button" role="tab" id="case-tab-1" aria-controls="case-panel-1" @click="select(1)" :aria-selected="isActive(1)" :tabindex="isActive(1) ? 0 : -1" :class="isActive(1) ? 'border-accent bg-wash text-fg' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Manufaktur · Odoo</button>
+          <button type="button" role="tab" id="case-tab-2" aria-controls="case-panel-2" @click="select(2)" :aria-selected="isActive(2)" :tabindex="isActive(2) ? 0 : -1" :class="isActive(2) ? 'border-accent bg-wash text-fg' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Layanan publik</button>
+        </div>
+
+        <div class="mt-10">
+          <!-- Contoh 1: ritel & e-commerce -->
+          <div x-show="isActive(0)" x-cloak role="tabpanel" id="case-panel-0" aria-labelledby="case-tab-0" tabindex="0" class="rounded-2xl border border-border bg-surface p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:p-8">
+            <p class="text-sm uppercase tracking-[0.22em] text-muted">Ritel &amp; e-commerce</p>
+            <p class="mt-2 font-display text-xl text-fg">Toko fashion online</p>
+            <div class="mt-6 grid gap-6 sm:grid-cols-2">
+              <div>
+                <h3 class="font-display text-lg text-fg">Masalahnya</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted">Stok, ukuran, harga, pengiriman, COD: ditulis ulang sepanjang hari; di luar jam kerja, pesan menunggu.</p>
+              </div>
+              <div>
+                <h3 class="font-display text-lg text-fg">Cara Conversa menyelesaikannya</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted">Bot pelanggan menjawab stok, harga, pengiriman, dan COD dari katalog dan stok langsung Anda. Di situs dan WhatsApp, siang dan malam. Nomor telepon menyatukan riwayat pembeli antarsaluran; kasus sulit diteruskan ke admin beserta obrolannya.</p>
+              </div>
+            </div>
+            <div class="mt-6 border-t border-border pt-5">
+              <p class="text-sm font-medium text-muted">Yang sudah aktif hari ini</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Bot pelanggan</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Widget situs + WhatsApp</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Katalog &amp; stok langsung</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Ingatan lintas saluran</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Alih ke admin</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Laporan celah jawaban</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contoh 2: manufaktur (Odoo) -->
+          <div x-show="isActive(1)" x-cloak role="tabpanel" id="case-panel-1" aria-labelledby="case-tab-1" tabindex="0" class="rounded-2xl border border-border bg-surface p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:p-8">
+            <p class="text-sm uppercase tracking-[0.22em] text-muted">Manufaktur · Odoo</p>
+            <p class="mt-2 font-display text-xl text-fg">Pabrik manufaktur</p>
+            <div class="mt-6 grid gap-6 sm:grid-cols-2">
+              <div>
+                <h3 class="font-display text-lg text-fg">Masalahnya</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted">Pembeli menanyakan produk, MOQ, lead time. Pemilik, sales, keuangan menunggu laporan yang diekspor satu per satu.</p>
+              </div>
+              <div>
+                <h3 class="font-display text-lg text-fg">Cara Conversa menyelesaikannya</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted">Bot pelanggan menjawab material, MOQ, lead time, hingga distributor per kota. Dari spesifikasi, sertifikat, dan katalog Anda. Di WhatsApp/Telegram staf, asisten pribadi membaca Odoo dan menjawab dengan bahasa sehari-hari: sales order, stok, faktur, leads CRM, laba rugi, pajak. Mau mengubah data? Asisten mengusulkan dulu, Anda yang setujui.</p>
+              </div>
+            </div>
+            <div class="mt-6 border-t border-border pt-5">
+              <p class="text-sm font-medium text-muted">Yang sudah aktif hari ini</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Bot pelanggan dari dokumen</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Asisten pribadi di WhatsApp/Telegram</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Baca langsung Odoo</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Bawaan hanya-baca</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Usulan tulis + persetujuan Anda</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contoh 3: layanan publik & swasta -->
+          <div x-show="isActive(2)" x-cloak role="tabpanel" id="case-panel-2" aria-labelledby="case-tab-2" tabindex="0" class="rounded-2xl border border-border bg-surface p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:p-8">
+            <p class="text-sm uppercase tracking-[0.22em] text-muted">Layanan publik</p>
+            <p class="mt-2 font-display text-xl text-fg">Klinik, kampus, kantor perizinan</p>
+            <div class="mt-6 grid gap-6 sm:grid-cols-2">
+              <div>
+                <h3 class="font-display text-lg text-fg">Masalahnya</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted">Antrean didominasi informasi dan berkas: syarat, biaya, jam buka, cara mendaftar. Ditanya ratusan kali.</p>
+              </div>
+              <div>
+                <h3 class="font-display text-lg text-fg">Cara Conversa menyelesaikannya</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted">Persyaratan, biaya, jadwal, dan prosedur dijawab dari dokumen resmi kantor: PDF atau foto. Registrasi didampingi, berkas dicek dengan daftar periksa. Warga yang memberi nomor telepon lanjut berminggu-minggu kemudian dari titik terakhir; yang butuh pertimbangan diteruskan ke petugas bernama.</p>
+              </div>
+            </div>
+            <div class="mt-6 border-t border-border pt-5">
+              <p class="text-sm font-medium text-muted">Yang sudah aktif hari ini</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Jawaban dari dokumen resmi</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Panduan registrasi &amp; cek berkas</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Ingatan lintas saluran</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Alih ke petugas bernama</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== SALURAN PARALEL (satu otak) ==================== -->
+    <section id="channel-parity" class="scroll-mt-24 border-b border-border bg-bg-alt">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="mb-10 max-w-2xl" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Satu jawaban, di semua saluran</h2>
+          <p class="mt-4 text-lg text-muted">Semua saluran nyambung ke satu otak Conversa: satu ingatan per pelanggan.</p>
+        </div>
+
+        <div class="rounded-2xl border border-border bg-surface p-6 sm:p-8" data-reveal>
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <span class="rounded-full border border-border px-4 py-2 text-center text-base text-fg">WhatsApp</span>
+            <span class="rounded-full border border-border px-4 py-2 text-center text-base text-fg">Chat web</span>
+            <span class="rounded-full border border-border px-4 py-2 text-center text-base text-fg">Telegram</span>
+            <span class="rounded-full border border-border px-4 py-2 text-center text-base text-fg">Odoo</span>
+          </div>
+          <p class="my-4 text-center text-2xl text-muted" aria-hidden="true">↓</p>
+          <div class="mx-auto w-fit rounded-full bg-wash px-6 py-3 font-display text-xl text-fg-strong sm:text-2xl">Satu otak Conversa</div>
+          <p class="mt-4 text-center text-base text-muted">Satu ingatan per pelanggan, dibaca dan ditulis semua saluran.</p>
+        </div>
+
+        <ul class="mt-8 grid grid-cols-1 gap-4 text-lg text-muted lg:grid-cols-2">
+          <li class="border-t border-border pt-4">Mulai di situs, lanjut di WhatsApp. Riwayatnya utuh, tanpa mengulang cerita.</li>
+          <li class="border-t border-border pt-4">Jawabannya sama di semua saluran: bersumber dari dokumen Anda sendiri.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================== GAYA BICARA (persona) ==================== -->
+    <section id="persona" class="scroll-mt-24 border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="mb-10 max-w-2xl" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Gaya bicaranya, Anda yang tentukan</h2>
+          <p class="mt-4 text-lg text-muted">Formal atau santai, Indonesia, Inggris, atau campuran. Bicaranya seperti rekan kerja, bukan mesin.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2" data-reveal>
+          <div class="rounded-2xl border border-border bg-surface p-6">
+            <p class="text-sm uppercase tracking-[0.22em] text-muted">Menu robot</p>
+            <div class="mt-4 space-y-3">
+              <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">Saya mau tanya soal pengiriman.</p>
+              <p class="w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Pilih: 1. Lacak pesanan 2. Pengembalian 3. Bicara dengan agen</p>
+            </div>
+            <p class="mt-4 text-base text-muted">Pertanyaan nyata jarang muat tiga pilihan.</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-surface p-6">
+            <p class="text-sm uppercase tracking-[0.22em] text-muted">Conversa</p>
+            <div class="mt-4 space-y-3">
+              <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">Saya mau tanya soal pengiriman.</p>
+              <p class="w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Tentu, boleh tahu nomor pesanannya? Belum ada? Kirim saja nama dan tanggal ordernya ya.</p>
+            </div>
+            <p class="mt-4 text-base text-muted">Dimengerti apa adanya, dialihkan ke manusia saat perlu.</p>
+          </div>
+        </div>
+
+        <p class="mt-8 max-w-2xl text-lg text-muted" data-reveal>Batasnya Anda yang pasang: bicara di topik bisnis Anda saja, sisanya ditolak.</p>
+      </div>
+    </section>
+    <!-- ========================== PRICING =========================== -->
+    <!-- Angka rencana berasal dari deck resmi. Pendaftaran tetap di conversa-bot.com/pricing. -->
+    <section id="pricing" class="scroll-mt-24 border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24" x-data="{ usd: false }">
+        <div class="mx-auto max-w-3xl text-center" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Harga yang jelas</h2>
+          <p class="mt-4 text-lg text-muted">Langganan bulanan, tanpa biaya tersembunyi. Daftar lewat halaman harga kami.</p>
+        </div>
+
+        <div class="mt-8 flex items-center justify-center gap-2" role="group" aria-label="Pilih mata uang">
+          <button type="button" @click="usd = false" :aria-pressed="(!usd).toString()" :class="!usd ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-9 rounded border px-4 text-sm font-medium transition-colors">IDR</button>
+          <button type="button" @click="usd = true" :aria-pressed="usd.toString()" :class="usd ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-9 rounded border px-4 text-sm font-medium transition-colors">USD</button>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3" data-reveal>
+          <!-- Starter -->
+          <div class="flex flex-col rounded-2xl border border-border bg-surface p-6 sm:p-8">
+            <h3 class="font-display text-2xl text-fg">Starter</h3>
+            <p class="mt-4 font-display text-3xl text-fg"><span x-text="usd ? '$29' : 'Rp399.000'">Rp399.000</span><span class="text-base text-muted" x-text="usd ? '/mo' : '/bulan'">/bulan</span></p>
+            <p class="mt-1 text-sm text-muted">atau <span x-text="usd ? '$25' : 'Rp349.000'">Rp349.000</span><span x-text="usd ? '/mo' : '/bulan'">/bulan</span> dengan kunci AI Anda sendiri</p>
+            <ul class="mt-6 space-y-2 text-base text-muted">
+              <li>250 percakapan</li>
+              <li>100 ekstraksi dokumen</li>
+              <li>250 MB penyimpanan pengetahuan</li>
+            </ul>
+            <a href="https://conversa-bot.com/register" class="mt-8 inline-flex min-h-11 items-center justify-center rounded border border-border px-6 font-medium text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Coba gratis</a>
+          </div>
+
+          <!-- Growth (direkomendasikan) -->
+          <div class="relative flex flex-col rounded-2xl border-2 border-accent bg-surface p-6 shadow-card sm:p-8">
+            <span class="absolute -top-3 left-6 rounded-full bg-accent px-3 py-1 text-xs font-medium text-charcoal">Direkomendasikan</span>
+            <h3 class="font-display text-2xl text-fg">Growth</h3>
+            <p class="mt-4 font-display text-3xl text-fg"><span x-text="usd ? '$99' : 'Rp1.199.000'">Rp1.199.000</span><span class="text-base text-muted" x-text="usd ? '/mo' : '/bulan'">/bulan</span></p>
+            <p class="mt-1 text-sm text-muted">atau <span x-text="usd ? '$89' : 'Rp1.079.000'">Rp1.079.000</span><span x-text="usd ? '/mo' : '/bulan'">/bulan</span> dengan kunci AI Anda sendiri</p>
+            <ul class="mt-6 space-y-2 text-base text-muted">
+              <li>1.000 percakapan</li>
+              <li>400 ekstraksi dokumen</li>
+              <li>1 GB penyimpanan pengetahuan</li>
+              <li>500 skill calls</li>
+              <li>Crawl situs web (diperbarui otomatis)</li>
+              <li>Skill web search &amp; browse</li>
+            </ul>
+            <a href="https://conversa-bot.com/register" class="mt-8 inline-flex min-h-11 items-center justify-center rounded bg-accent px-6 font-medium text-charcoal transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Coba gratis</a>
+          </div>
+
+          <!-- Pro -->
+          <div class="flex flex-col rounded-2xl border border-border bg-surface p-6 sm:p-8">
+            <h3 class="font-display text-2xl text-fg">Pro</h3>
+            <p class="mt-4 font-display text-3xl text-fg"><span x-text="usd ? '$299' : 'Rp3.299.000'">Rp3.299.000</span><span class="text-base text-muted" x-text="usd ? '/mo' : '/bulan'">/bulan</span></p>
+            <p class="mt-1 text-sm text-muted">atau <span x-text="usd ? '$269' : 'Rp2.969.000'">Rp2.969.000</span><span x-text="usd ? '/mo' : '/bulan'">/bulan</span> dengan kunci AI Anda sendiri</p>
+            <ul class="mt-6 space-y-2 text-base text-muted">
+              <li>3.500 percakapan</li>
+              <li>1.500 ekstraksi dokumen</li>
+              <li>5 GB penyimpanan pengetahuan</li>
+              <li>2.000 skill calls</li>
+              <li>API tools (status pesanan, pengiriman, sistem Anda sendiri)</li>
+              <li>Add-on Odoo: khusus paket Pro</li>
+              <li>Asisten pribadi: khusus owner, Summarit seluruh sistem lewat Conversa</li>
+            </ul>
+            <a href="https://conversa-bot.com/register" class="mt-8 inline-flex min-h-11 items-center justify-center rounded border border-border px-6 font-medium text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Coba gratis</a>
+          </div>
+        </div>
+
+        <div class="mx-auto mt-12 max-w-3xl" data-reveal>
+          <p class="text-sm font-medium text-fg">Semua rencana termasuk:</p>
+          <ul class="mt-3 grid grid-cols-1 gap-2 text-base text-muted sm:grid-cols-2">
+            <li>Mesin konteks Gravija (hybrid search, knowledge graph, self-repair)</li>
+            <li>Ingatan per-pelanggan di semua saluran</li>
+            <li>Guardrails + jawaban multibahasa</li>
+            <li>Katalog, berkas, FAQ, dan PDF</li>
+            <li>Basis data langsung hanya-baca</li>
+            <li>Widget situs web + WhatsApp + Telegram</li>
+            <li>Alih ke kotak masuk langsung</li>
+            <li>Laporan wawasan + celah pengetahuan</li>
+          </ul>
+          <div class="mt-8 rounded-lg border border-border bg-bg-quiet p-4" data-reveal>
+            <p class="flex gap-3 text-sm text-muted"><span aria-hidden="true" class="font-bold text-fg-strong">*</span><span>Satu percakapan adalah satu pelanggan dalam satu jendela 24 jam, berapa pun pesannya. Lisensi dan implementasi Odoo terpisah. Harga per September 2026. Harga juga tersedia dalam USD: gunakan pengalih IDR/USD di atas.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== FAQ ============================== -->
+    <section id="faq" class="scroll-mt-24 border-b border-border bg-bg-alt">
+      <div class="mx-auto max-w-3xl px-6 py-16 lg:py-24" x-data="accordion">
+        <div class="mb-10" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Pertanyaan yang sering diajukan</h2>
+        </div>
+
+        <div class="divide-y divide-border border-y border-border">
+          <div>
+            <h3>
+              <button type="button" id="faq-q-0" @click="toggle(0)" :aria-expanded="isOpen(0)" aria-controls="faq-a-0" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Apa itu Conversa?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(0) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(0)" x-cloak id="faq-a-0" role="region" aria-labelledby="faq-q-0"><p class="pb-6 text-lg text-muted">Admin online yang menjawab chat pelanggan memakai informasi Anda, dan mengalihkan ke Anda saat perlu.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-1" @click="toggle(1)" :aria-expanded="isOpen(1)" aria-controls="faq-a-1" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Bagaimana kalau tidak tahu jawabannya?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(1) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(1)" x-cloak id="faq-a-1" role="region" aria-labelledby="faq-q-1"><p class="pb-6 text-lg text-muted">Diteruskan ke Anda, dengan pesan apa adanya. Tidak menebak.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-2" @click="toggle(2)" :aria-expanded="isOpen(2)" aria-controls="faq-a-2" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Perlu paham teknis?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(2) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(2)" x-cloak id="faq-a-2" role="region" aria-labelledby="faq-q-2"><p class="pb-6 text-lg text-muted">Tidak. Tambahkan dokumen, nyalakan. Kalau bisa pakai WhatsApp, Anda bisa pakai Conversa.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-3" @click="toggle(3)" :aria-expanded="isOpen(3)" aria-controls="faq-a-3" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Saluran apa saja?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(3) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(3)" x-cloak id="faq-a-3" role="region" aria-labelledby="faq-q-3"><p class="pb-6 text-lg text-muted">Web chat, WhatsApp, Telegram, dan Odoo.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-4" @click="toggle(4)" :aria-expanded="isOpen(4)" aria-controls="faq-a-4" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Bisa salah jawab?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(4) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(4)" x-cloak id="faq-a-4" role="region" aria-labelledby="faq-q-4"><p class="pb-6 text-lg text-muted">Jawaban hanya dari dokumen Anda. Saat ragu, manusia yang mengambil alih.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-5" @click="toggle(5)" :aria-expanded="isOpen(5)" aria-controls="faq-a-5" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Apakah ini menggantikan tim saya?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(5) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(5)" x-cloak id="faq-a-5" role="region" aria-labelledby="faq-q-5"><p class="pb-6 text-lg text-muted">Tidak. Pertanyaan berulang ditangani otomatis; tim Anda fokus ke yang sulit.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-6" @click="toggle(6)" :aria-expanded="isOpen(6)" aria-controls="faq-a-6" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Apakah data saya aman?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(6) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(6)" x-cloak id="faq-a-6" role="region" aria-labelledby="faq-q-6"><p class="pb-6 text-lg text-muted">Anda pilih apa yang boleh dilihat; aksesnya hanya-baca.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-7" @click="toggle(7)" :aria-expanded="isOpen(7)" aria-controls="faq-a-7" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Bagaimana cara mencobanya?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(7) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(7)" x-cloak id="faq-a-7" role="region" aria-labelledby="faq-q-7"><p class="pb-6 text-lg text-muted">Mulai uji coba 3 hari. Untuk 2 pelanggan dan tanpa kartu.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA BAND + LEAD FORM =================== -->
+    <section id="start" class="dark-band scroll-mt-24 border-b border-border">
+      <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-16 lg:grid-cols-12 lg:py-24">
+        <div class="lg:col-span-5 lg:self-center" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Coba gratis 3 hari</h2>
+          <p class="mt-4 text-lg text-muted">Beri tahu kami cara menghubungi Anda dan kami bantu menyiapkannya. Tiga hari, dua pelanggan, tanpa kartu.</p>
+          <p class="mt-6 text-base text-muted">Mau bicara dulu?</p>
+          <a href="https://wa.me/6281807177764?text=Halo%20Conversa%2C%20saya%20ingin%20bertanya%20tentang%20Conversa%20untuk%20bisnis%20saya." target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex min-h-11 items-center gap-2 rounded border border-border px-6 font-medium text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2A9.88 9.88 0 0 0 2.16 11.88c0 1.74.46 3.45 1.32 4.95L2 22l5.3-1.39a9.9 9.9 0 0 0 4.74 1.21h.01A9.88 9.88 0 0 0 12.04 2Zm5.8 14.12c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.03.24-3.47-.72-2.94-1.16-4.8-4.2-4.95-4.4-.14-.2-1.17-1.57-1.17-3 0-1.42.74-2.12 1-2.41.26-.29.57-.36.76-.36h.55c.17 0 .41-.07.63.48.24.58.81 2 .88 2.15.07.14.12.31.02.5-.1.2-.15.32-.29.5-.15.17-.31.38-.44.51-.14.14-.29.3-.12.59.17.29.74 1.23 1.6 1.99 1.1.98 2.03 1.28 2.32 1.43.29.15.46.12.63-.07.17-.2.72-.84.91-1.13.19-.29.39-.24.65-.14.26.1 1.67.79 1.95.93.29.14.48.21.55.33.07.11.07.67-.17 1.35Z"/></svg>Hubungi kami</a>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div x-data="leadForm" class="rounded-2xl border border-border bg-surface shadow-card p-6 sm:p-8">
+            <form x-show="!submitted" @submit.prevent="submit()" novalidate class="space-y-5">
+              <div>
+                <label for="lf-name" class="block text-base text-fg">Nama</label>
+                <input id="lf-name" name="name" type="text" autocomplete="name" x-model="name" :aria-invalid="errors.name" :aria-describedby="errors.name ? 'lf-name-error' : null"
+                       class="mt-2 min-h-11 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" />
+                <p x-show="errors.name" x-cloak id="lf-name-error" class="mt-2 text-base text-fg font-medium">Mohon isi nama Anda.</p>
+              </div>
+              <div>
+                <label for="lf-whatsapp" class="block text-base text-fg">Nomor WhatsApp</label>
+                <input id="lf-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" x-model="whatsapp" :aria-invalid="errors.whatsapp" :aria-describedby="errors.whatsapp ? 'lf-whatsapp-error' : null"
+                       class="mt-2 min-h-11 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" />
+                <p x-show="errors.whatsapp" x-cloak id="lf-whatsapp-error" class="mt-2 text-base text-fg font-medium">Mohon isi nomor WhatsApp Anda.</p>
+              </div>
+              <div>
+                <label for="lf-type" class="block text-base text-fg">Jenis bisnis</label>
+                <select id="lf-type" name="business_type" x-model="businessType"
+                        class="mt-2 min-h-11 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                  <option value="">Pilih jenis bisnis Anda</option>
+                  <option>Klinik</option>
+                  <option>Toko atau ritel</option>
+                  <option>Sekolah atau kursus</option>
+                  <option>Penyedia jasa</option>
+                  <option>Toko online</option>
+                  <option>Agensi</option>
+                  <option>Lainnya</option>
+                </select>
+              </div>
+              <div>
+                <label for="lf-message" class="block text-base text-fg">Pesan (opsional)</label>
+                <textarea id="lf-message" name="message" rows="3" x-model="message"
+                          class="mt-2 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"></textarea>
+              </div>
+              <button type="submit" :disabled="sending" class="inline-flex min-h-11 items-center justify-center rounded bg-accent px-6 font-medium text-charcoal transition-opacity hover:opacity-90 disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg">Coba gratis</button>
+            </form>
+
+            <div x-show="submitted" x-cloak role="status" class="py-6">
+              <h3 x-ref="successTitle" tabindex="-1" class="font-display text-2xl text-fg focus-visible:outline-none">Terima kasih. Anda terdaftar.</h3>
+              <p class="mt-3 text-lg text-muted">Detail Anda kami terima. Kami hubungi lewat WhatsApp untuk menyiapkan uji coba 3 harinya.</p>
+              <p x-show="fallbackUrl" x-cloak class="mt-4 text-base text-muted">
+                <a :href="fallbackUrl" target="_blank" rel="noopener noreferrer" class="rounded underline transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Tidak terkirim otomatis? Lanjutkan via WhatsApp</a>
+              </p>
+              <button type="button" @click="reset()" class="mt-6 inline-flex min-h-11 items-center rounded border border-border px-5 text-base text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Kirim lagi</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER =========================== -->
+  <footer class="bg-bg">
+    <div class="mx-auto max-w-6xl px-6 py-12">
+      <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+        <div>
+          <a href="./" class="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded" aria-label="Beranda Conversa">
+            <img src="public/brand/conversa-logo-light.svg" alt="" width="32" height="32" class="h-8 w-8" />
+            <span class="font-display text-xl tracking-tight">conversa</span>
+          </a>
+          <p class="mt-4 max-w-xs text-base text-muted">Admin online untuk WhatsApp, web, Telegram, dan Odoo. Menjawab chat pelanggan memakai harga dan aturan Anda, mengalihkan ke tim saat dibutuhkan.</p>
+        </div>
+
+        <nav class="flex flex-col gap-3 text-base" aria-label="Tautan situs">
+          <p class="text-sm font-medium uppercase tracking-wide text-muted" id="footer-nav-pages">Halaman</p>
+          <a href="#how-it-works" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Cara kerja</a>
+          <a href="#features" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Fitur</a>
+          <a href="#case-studies" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Simulasi</a>
+          <a href="#pricing" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Harga</a>
+          <a href="#faq" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">FAQ</a>
+          <a href="/partner/" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Mitra</a>
+        </nav>
+
+        <nav class="flex flex-col gap-3 text-base" aria-label="Tautan lain">
+          <p class="text-sm font-medium uppercase tracking-wide text-muted" id="footer-nav-company">Perusahaan</p>
+          <a href="https://conversa-bot.com" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Situs utama</a>
+          <a href="https://conversa-bot.com/register" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Daftar</a>
+          <a href="https://conversa-bot.com/terms" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Ketentuan</a>
+          <a href="https://conversa-bot.com/privacy" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Privasi</a>
+        </nav>
+
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center rounded border border-border text-base" role="group" aria-label="Bahasa">
+            <a href="en/" class="inline-flex min-h-11 min-w-11 items-center justify-center px-3 py-2 text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">EN</a>
+            <span class="inline-flex min-h-11 min-w-11 items-center justify-center px-3 py-2 bg-wash text-fg-strong" aria-current="true">ID</span>
+          </div>
+          <a href="https://wa.me/6281807177764?text=Halo%20Conversa%2C%20saya%20ingin%20bertanya%20tentang%20Conversa%20untuk%20bisnis%20saya." target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-2 rounded border border-border px-5 text-base text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2A9.88 9.88 0 0 0 2.16 11.88c0 1.74.46 3.45 1.32 4.95L2 22l5.3-1.39a9.9 9.9 0 0 0 4.74 1.21h.01A9.88 9.88 0 0 0 12.04 2Zm5.8 14.12c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.03.24-3.47-.72-2.94-1.16-4.8-4.2-4.95-4.4-.14-.2-1.17-1.57-1.17-3 0-1.42.74-2.12 1-2.41.26-.29.57-.36.76-.36h.55c.17 0 .41-.07.63.48.24.58.81 2 .88 2.15.07.14.12.31.02.5-.1.2-.15.32-.29.5-.15.17-.31.38-.44.51-.14.14-.29.3-.12.59.17.29.74 1.23 1.6 1.99 1.1.98 2.03 1.28 2.32 1.43.29.15.46.12.63-.07.17-.2.72-.84.91-1.13.19-.29.39-.24.65-.14.26.1 1.67.79 1.95.93.29.14.48.21.55.33.07.11.07.67-.17 1.35Z"/></svg>Hubungi kami</a>
+        </div>
+      </div>
+      <p class="mt-10 text-base text-muted">© 2026 Conversa</p>
+    </div>
+  </footer>
+
+  <!-- ===================== Floating WhatsApp button (FAB) ===================== -->
+  <div class="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
+    <a href="https://wa.me/6281807177764?text=Halo%20Conversa%2C%20saya%20ingin%20mencoba%20dan%20bertanya%20tentang%20Conversa%20untuk%20bisnis%20saya."
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Hubungi kami di WhatsApp"
+       class="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform motion-safe:hover:scale-110 motion-safe:active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.002 3.2C8.94 3.2 3.2 8.94 3.2 16c0 2.26.59 4.47 1.71 6.42L3.2 28.8l6.55-1.68A12.77 12.77 0 0 0 16 28.8h.002c7.06 0 12.8-5.74 12.8-12.8s-5.74-12.8-12.8-12.8Zm0 23.36h-.002c-1.94 0-3.85-.52-5.51-1.51l-.4-.24-4.09 1.05 1.09-3.99-.26-.41a10.53 10.53 0 0 1-1.61-5.66c0-5.87 4.78-10.64 10.66-10.64 2.84 0 5.52 1.11 7.53 3.12a10.58 10.58 0 0 1 3.12 7.53c0 5.87-4.78 10.65-10.64 10.65Zm5.84-7.97c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.72.16-.21.32-.83 1.04-1.02 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.59-1.89-1.78-2.21-.19-.32-.02-.5.14-.66.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.53-.72-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.65 0 1.56 1.14 3.07 1.3 3.28.16.21 2.24 3.42 5.42 4.8.76.33 1.35.52 1.81.67.76.24 1.46.21 2 .13.61-.09 1.89-.77 2.15-1.52.27-.75.27-1.38.19-1.52-.08-.13-.29-.21-.61-.37Z"/></svg>
+      <span class="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded border border-border bg-bg px-3 py-1.5 text-sm font-medium text-fg shadow-card opacity-0 transition-opacity duration-200 group-hover:opacity-100 md:block"
+            role="tooltip">Chat dengan kami</span>
+    </a>
+  </div>
+
+  <!-- Data skenario demo chat (data biasa; bisa diubah tanpa menyentuh JS).
+       Ilustrasi: bukan data pelanggan nyata. Angka Odoo pada skenario manufaktur
+       diambil dari contoh terpandu resmi perusahaan. -->
+  <script type="application/json" id="chat-demo-data">
+    [
+      {
+        "id": "clinic",
+        "channel": "WhatsApp",
+        "business": "Klinik Gigi Ceria",
+        "caption": "Contoh percakapan: jawaban diambil dari jam buka dan harga klinik.",
+        "srDescription": "Contoh percakapan klinik gigi: harga scaling dan jadwal Sabtu.",
+        "messages": [
+          { "from": "user", "text": "Halo, mau tanya harga scaling gigi berapa ya?" },
+          { "from": "bot",  "text": "Halo! Scaling dan polishing mulai Rp350.000, tergantung paketnya. Mau saya kirimkan daftar harga lengkap?" },
+          { "from": "user", "text": "Boleh dikirim. Oh iya, Sabtu ini masih ada jam kosong nggak?" },
+          { "from": "bot",  "text": "Sabtu ini masih ada jam 10.00 dan 15.30. Mau pilih yang mana?" },
+          { "from": "user", "text": "Jam 10.00 aja." },
+          { "from": "bot",  "text": "Siap, sudah terjadwal: Sabtu jam 10.00 untuk scaling. Saya kirim pengingat sehari sebelumnya ya." },
+          { "from": "user", "text": "Oke, makasih banyak." },
+          { "from": "bot",  "text": "Sama-sama! Kalau ada perubahan jadwal, kabari saya di sini. Sampai jumpa Sabtu nanti!" }
+        ]
+      },
+      {
+        "id": "retail",
+        "channel": "Website chat",
+        "business": "Toko Fesyen Linen",
+        "caption": "Contoh percakapan: stok dan harga diambil dari katalog toko.",
+        "srDescription": "Contoh percakapan dengan Conversa untuk toko fesyen online: Pelanggan menanyakan ketersediaan dress linen ukuran M dan apakah COD ke Jogja bisa. Conversa menyebut stok dan harga dari katalog toko, membantu memilih warna, memastikan pesanan sebelum jam 3 siang dikirim hari yang sama, lalu mencatat pesanan: Linen Dress Sage ukuran M, satu pcs, COD ke Jogja; admin akan mengonfirmasi.",
+        "messages": [
+          { "from": "user", "text": "Kak, dress linen sage ukuran M masih ready? Bisa COD ke Jogja?" },
+          { "from": "bot",  "text": "Ready, Kak! Linen Dress Sage ukuran M masih ada 3 pcs, harganya Rp289.000. COD ke Jogja bisa ya. Mau saya bantu lanjut pesan?" },
+          { "from": "user", "text": "Kalau yang warna hitam ada?" },
+          { "from": "bot",  "text": "Linen Dress hitam ukuran M juga masih ada, 2 pcs, harga sama Rp289.000. Mau saya siapkan yang mana?" },
+          { "from": "user", "text": "Yang sage aja deh. Bisa kirim hari ini?" },
+          { "from": "bot",  "text": "Bisa, Kak. Pesanan sebelum jam 3 siang dikirim hari yang sama. Saya buatkan draft pesanannya ya." },
+          { "from": "user", "text": "Oke, siap." },
+          { "from": "bot",  "text": "Sudah saya catat: Linen Dress Sage ukuran M, 1 pcs, COD ke Jogja. Admin kami akan konfirmasi sebentar lagi." }
+        ]
+      },
+      {
+        "id": "manufacturing",
+        "channel": "WhatsApp",
+        "business": "PT Karya Presisi",
+        "caption": "Contoh percakapan: angka diambil langsung dari Odoo perusahaan.",
+        "srDescription": "Contoh percakapan dengan Conversa untuk perusahaan manufaktur di Odoo: Pelanggan bisnis menanyakan MOQ dan lead time resin grade A. Conversa menjawab dari data perusahaan dan menyebut distributor wilayah. Untuk jumlah satu ton lead time lebih singkat, dan penawaran resmi diteruskan ke tim sales. Conversa juga merangkum dari Odoo: dua belas invoice belum lunas dengan total Rp84.500.000, tiga di antaranya sudah lewat 30 hari.",
+        "messages": [
+          { "from": "user", "text": "Selamat pagi, untuk resin grade A MOQ-nya berapa dan lead time-nya?" },
+          { "from": "bot",  "text": "Selamat pagi. Resin grade A MOQ 500 kg, lead time 10 hari kerja. Distributor untuk wilayah Anda adalah CV Sumber Jaya." },
+          { "from": "user", "text": "Kalau 1 ton bisa lebih cepat?" },
+          { "from": "bot",  "text": "Untuk 1 ton, lead time bisa 7 hari kerja. Saya teruskan ke tim sales untuk penawaran resmi ya." },
+          { "from": "user", "text": "Sekalian, invoice yang belum dibayar bulan ini berapa?" },
+          { "from": "bot",  "text": "Dari Odoo: 12 invoice belum lunas, total Rp84.500.000. Tiga sudah lewat 30 hari: CV Maju Jaya, Toko Sinar, PT Arta. Mau saya rangkum per pelanggan?" },
+          { "from": "user", "text": "Ya, rangkum saja per pelanggan." },
+          { "from": "bot",  "text": "Siap. Rangkumannya saya kirim ke email finance perusahaan ya. Ada lagi yang bisa saya bantu?" }
+        ]
+      },
+      {
+        "id": "service",
+        "channel": "WhatsApp",
+        "business": "Kantor Perizinan",
+        "caption": "Contoh percakapan: syarat diambil dari dokumen resmi kantor.",
+        "srDescription": "Contoh percakapan dengan Conversa untuk kantor perizinan: Warga menanyakan syarat perpanjangan izin usaha dan apakah bisa online. Conversa menyebut berkas yang dibutuhkan dari dokumen resmi kantor, menjelaskan pengganti NIB bila hilang, dan menyampaikan estimasi lima hari kerja setelah berkas lengkap.",
+        "messages": [
+          { "from": "user", "text": "Mau perpanjang izin usaha, syaratnya apa saja dan bisa online?" },
+          { "from": "bot",  "text": "Untuk perpanjangan izin usaha, berkasnya: KTP pemilik, NIB, izin lama, dan bukti bayar retribusi terakhir. Semua bisa diunggah online lewat portal layanan." },
+          { "from": "user", "text": "Kalau NIB-nya hilang?" },
+          { "from": "bot",  "text": "Kalau hilang, lampirkan surat keterangan kehilangan dari kepolisian sebagai pengganti NIB. Sisanya tetap sama." },
+          { "from": "user", "text": "Berapa lama prosesnya?" },
+          { "from": "bot",  "text": "Rata-rata 5 hari kerja setelah berkas lengkap. Kalau ada yang kurang, petugas kami akan menghubungi Anda lewat nomor ini." },
+          { "from": "user", "text": "Baik, terima kasih infonya." },
+          { "from": "bot",  "text": "Sama-sama. Kalau ada berkas yang ingin dicek, kirim saja di sini ya." }
+        ]
+      },
+      {
+        "id": "umroh",
+        "channel": "WhatsApp",
+        "business": "Travel Umroh & Haji",
+        "caption": "Contoh percakapan: paket, jadwal, dan syarat dari dokumen travel.",
+        "srDescription": "Contoh percakapan dengan Conversa untuk travel umroh dan haji: Calon jamaah menanyakan paket keberangkatan bulan depan dan harganya. Conversa menjawab dari dokumen travel: paket 9 hari, quadruple share Rp32.500.000 per jamaah, sudah termasuk tiket, hotel bintang 4, dan makan 3x sehari. Conversa menjelaskan skema DP Rp5.000.000 dengan cicilan hingga 30 hari sebelum keberangkatan atau lewat bank mitra, merinci syarat perjalanan, lalu mencatat jadwal yang ditanyakan dan menawarkan bantuan dokumen.",
+        "messages": [
+          { "from": "user", "text": "Assalamualaikum, paket umroh bulan depan ada? Harganya berapa ya?" },
+          { "from": "bot",  "text": "Waalaikumsalam. Ada, Kak. Paket 9 hari keberangkatan 12 bulan depan, quadruple share Rp32.500.000 per jamaah. Sudah termasuk tiket, hotel bintang 4, dan makan 3x sehari." },
+          { "from": "user", "text": "Skema pembayarannya bagaimana? Bisa cicilan?" },
+          { "from": "bot",  "text": "Bisa, Kak. DP Rp5.000.000, sisanya dicicil hingga 30 hari sebelum keberangkatan. Bisa juga lewat cicilan bank yang bekerja sama dengan kami." },
+          { "from": "user", "text": "Syaratnya apa saja yang perlu disiapkan?" },
+          { "from": "bot",  "text": "KTP, paspor (masih berlaku minimal 6 bulan), foto 3x4 latar merah, buku vaksin meningitis, dan buku nikah bila berangkat bersama pasangan. Checklistnya bisa Kakak unduh dari situs kami." },
+          { "from": "user", "text": "Oke, saya proses dulu dokumennya ya." },
+          { "from": "bot",  "text": "Siap, Kak. Saya catat jadwal keberangkatan yang Kakak tanyakan. Kalau butuh bantuan dokumen, tim kami siap membantu." }
+        ]
+      },
+      {
+        "id": "influencer",
+        "channel": "Website chat",
+        "business": "Rina Official",
+        "caption": "Contoh percakapan: QnA follower, kelas online, dan produk digital.",
+        "srDescription": "Contoh percakapan dengan Conversa untuk kreator konten: Follower menanyakan jadwal batch baru kelas editing. Conversa menjawab dari jadwal kreator: Batch 7 dibuka Senin depan, kuota 50 orang, isinya 12 sesi live plus grup diskusi. Conversa merinci produk digital (preset Lightroom, template caption, e-book strategi konten) yang langsung terkirim ke email, menawarkan contoh before dan after preset indoor, lalu mengirimkannya dan mengajak bertanya kapan pun.",
+        "messages": [
+          { "from": "user", "text": "Kak Rina, kelas editingnya buka batch baru kapan?" },
+          { "from": "bot",  "text": "Batch 7 dibuka Senin depan, kuota 50 orang. Isinya 12 sesi live plus grup diskusi. Mau saya kirimkan rinciannya?" },
+          { "from": "user", "text": "Bisa. Produk digital kamu apa aja?" },
+          { "from": "bot",  "text": "Ada preset Lightroom, template caption, dan e-book strategi konten. Semua bisa dibeli langsung di situs ini dan langsung terkirim ke email." },
+          { "from": "user", "text": "Presetnya cocok buat foto indoor nggak?" },
+          { "from": "bot",  "text": "Cocok, kak. Ada 3 preset khusus indoor di dalam paket. Mau saya kirimkan contoh sebelum dan sesudahnya?" },
+          { "from": "user", "text": "Boleh, kirim ya." },
+          { "from": "bot",  "text": "Terkirim! Kalau ada pertanyaan soal kelas atau produk, tanya di sini saja, saya jawab kapan pun." }
+        ]
+      }
+    ]
+  </script>
+
+  <!--
+    Skrip vendor (versi terkunci, disimpan lokal, tanpa CDN saat runtime):
+      - Alpine.js   3.14.9  (@3.14.9/dist/cdn.min.js)
+      - Motion One  10.18.0 (@10.18.0/dist/motion.min.js)
+    Keduanya memakai `defer`, jadi HTML diproses lebih dulu (tidak menghambat render).
+    app.js dimuat SEBELUM Alpine: ia memasang listener `alpine:init` yang
+    mendefinisikan komponen, dan skrip defer dieksekusi sesuai urutan dokumen —
+    jadi listener sudah siap sebelum bundle Alpine (yang menjalankan Alpine) dieksekusi.
+  -->
+  <script src="src/app.js" defer></script>
+  <script src="public/vendor/alpine.min.js" defer></script>
+  <script src="public/vendor/motion.min.js" defer></script>
+
+  <!-- Peningkatan progresif: animasi halus.
+       Elemen disembunyikan oleh `.js [data-reveal]` (ditambahkan di <head> hanya saat JS jalan).
+       Reduce motion atau Motion tidak ada → konten langsung tampil, tidak pernah tersembunyi. -->
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      var els = document.querySelectorAll("[data-reveal]");
+      var reduce =
+        window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // Tanpa Motion (atau pengguna memilih reduce motion): tampilkan semuanya sekarang.
+      if (reduce || !window.Motion || !window.Motion.animate) {
+        els.forEach(function (el) {
+          el.style.opacity = "1";
+        });
+        return;
+      }
+
+      els.forEach(function (el, i) {
+        el.style.opacity = "1";
+        window.Motion.animate(
+          el,
+          { opacity: [0, 1], transform: ["translateY(16px)", "translateY(0px)"] },
+          { duration: 0.5, delay: Math.min(i * 0.06, 0.3), easing: "ease-out" }
+        ).finished.finally(function () {
+          el.style.opacity = "1";
+        });
+      });
+    });
+  </script>
+</body>
+</html>

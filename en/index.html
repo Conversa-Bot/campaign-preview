@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conversa: your online admin, working around the clock</title>
+  <meta name="description" content="Conversa is your online admin across WhatsApp, your website, Telegram and Odoo. It answers customers using your own prices and rules, and hands off to your team when needed." />
+  <link rel="canonical" href="https://campaign.conversa-bot.com/en/" />
+  <link rel="alternate" hreflang="en" href="https://campaign.conversa-bot.com/en/" />
+  <link rel="alternate" hreflang="id" href="https://campaign.conversa-bot.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://campaign.conversa-bot.com/" />
+  <link rel="icon" href="../public/brand/conversa-logo-light.svg" type="image/svg+xml" />
+  <link rel="preload" href="../public/brand/zodiak-regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../public/brand/zodiak-bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../dist/styles.css" />
+  <style>[x-cloak]{display:none!important}</style>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="bg-bg text-fg font-sans antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:text-charcoal">Skip to content</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header x-data="nav" class="sticky top-0 z-40 border-b border-border bg-bg">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
+      <a href="../" class="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded" aria-label="Conversa home">
+        <img src="../public/brand/conversa-logo-light.svg" alt="" width="36" height="36" class="h-9 w-9" />
+        <span class="font-display text-2xl tracking-tight">conversa</span>
+      </a>
+
+      <nav class="hidden items-center gap-8 md:flex" aria-label="Main">
+        <a href="#features" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Features</a>
+        <a href="#how-it-works" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">How it works</a>
+        <a href="#case-studies" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Simulation</a>
+        <a href="#pricing" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Pricing</a>
+        <a href="#faq" class="py-2 text-base text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <div class="flex items-center rounded border border-border text-base" role="group" aria-label="Language">
+          <span class="inline-flex min-h-11 min-w-11 items-center justify-center px-3 py-2 bg-wash text-fg-strong" aria-current="true">EN</span>
+          <a href="../" class="inline-flex min-h-11 min-w-11 items-center justify-center px-3 py-2 text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">ID</a>
+        </div>
+        <a href="https://conversa-bot.com/register" class="hidden min-h-11 items-center rounded bg-accent px-5 font-medium text-charcoal transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg sm:inline-flex">Try free</a>
+        <button type="button" @click="toggle()" :aria-expanded="open" aria-controls="mobile-menu" class="inline-flex min-h-11 min-w-11 items-center justify-center rounded border border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:hidden" aria-label="Toggle menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" x-show="open" x-cloak x-transition.opacity class="border-t border-border md:hidden">
+      <nav class="mx-auto max-w-6xl px-6 py-2" aria-label="Mobile">
+        <a href="#features" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Features</a>
+        <a href="#how-it-works" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">How it works</a>
+        <a href="#case-studies" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Simulation</a>
+        <a href="#pricing" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Pricing</a>
+        <a href="#faq" @click="close()" class="block min-h-11 py-3 text-base text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">FAQ</a>
+        <a href="https://conversa-bot.com/register" @click="close()" class="mt-2 inline-flex min-h-11 items-center rounded bg-accent px-5 font-medium text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Try free</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================ HERO ============================ -->
+    <section class="hero-wash border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="mx-auto max-w-3xl text-center" data-reveal>
+          <p class="inline-flex items-center rounded-full border border-border px-4 py-1.5 text-sm uppercase tracking-[0.22em] text-muted">Your online admin, working around the clock</p>
+          <h1 class="mt-6 font-display text-balance text-fg">
+            <span class="block text-display">Online admin, 24 hours a day.</span>
+            <span class="block text-xl text-muted sm:text-2xl">No gaps, no waiting.</span>
+          </h1>
+          <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted">
+            Conversa answers customer chats in seconds, using your prices and rules. Then it hands off to your team when needed.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
+            <a href="https://conversa-bot.com/register" class="inline-flex min-h-11 items-center justify-center rounded bg-accent px-6 font-medium text-charcoal transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg">Try free</a>
+            <a href="https://wa.me/6281807177764?text=Hi%20Conversa%2C%20I%27d%20like%20to%20ask%20about%20Conversa%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center justify-center gap-2 rounded border border-border px-6 font-medium text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2A9.88 9.88 0 0 0 2.16 11.88c0 1.74.46 3.45 1.32 4.95L2 22l5.3-1.39a9.9 9.9 0 0 0 4.74 1.21h.01A9.88 9.88 0 0 0 12.04 2Zm5.8 14.12c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.03.24-3.47-.72-2.94-1.16-4.8-4.2-4.95-4.4-.14-.2-1.17-1.57-1.17-3 0-1.42.74-2.12 1-2.41.26-.29.57-.36.76-.36h.55c.17 0 .41-.07.63.48.24.58.81 2 .88 2.15.07.14.12.31.02.5-.1.2-.15.32-.29.5-.15.17-.31.38-.44.51-.14.14-.29.3-.12.59.17.29.74 1.23 1.6 1.99 1.1.98 2.03 1.28 2.32 1.43.29.15.46.12.63-.07.17-.2.72-.84.91-1.13.19-.29.39-.24.65-.14.26.1 1.67.79 1.95.93.29.14.48.21.55.33.07.11.07.67-.17 1.35Z"/></svg>Talk to us</a>
+          </div>
+          <p class="mt-5 text-sm text-muted">3-day trial · covers 2 customers · no card</p>
+        </div>
+
+        <!-- Chat demo — phone-style frame, centred and large; fixed chat height (no layout shift).
+             The scenario selector above the phone swaps the business, channel and transcript in the demo. -->
+        <div class="mt-12 lg:mt-16" data-reveal>
+          <div class="mx-auto w-full max-w-md lg:max-w-5xl" x-data="chatDemo" x-init="init()">
+            <div class="lg:flex lg:items-center lg:justify-center lg:gap-10">
+            <!-- Scenario selector (tab semantics; arrow keys also work).
+                 Mobile: 2-col × 3-row grid above the phone. Desktop (lg): single-column list to the RIGHT of the phone. -->
+            <div class="mb-6 lg:order-2 lg:mb-0 lg:w-72 lg:shrink-0">
+              <p class="text-sm uppercase tracking-[0.22em] text-muted">Real example conversations</p>
+              <h3 class="mt-2 font-display text-2xl text-fg">Choose your type of business</h3>
+              <div class="mt-4 grid grid-cols-2 gap-2 lg:mt-6 lg:grid-cols-1 lg:gap-3" role="tablist" aria-label="Example scenarios" @keydown="onScenarioKeydown($event)">
+                <button type="button" role="tab" id="demo-tab-0" aria-controls="demo-panel" @click="selectScenario(0)" :aria-selected="isScenarioActive(0)" :tabindex="isScenarioActive(0) ? 0 : -1" :class="isScenarioActive(0) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 w-full rounded-lg border px-4 py-2 text-left text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-14">Clinic &amp; appointments</button>
+                <button type="button" role="tab" id="demo-tab-1" aria-controls="demo-panel" @click="selectScenario(1)" :aria-selected="isScenarioActive(1)" :tabindex="isScenarioActive(1) ? 0 : -1" :class="isScenarioActive(1) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 w-full rounded-lg border px-4 py-2 text-left text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-14">Retail &amp; e-commerce</button>
+                <button type="button" role="tab" id="demo-tab-2" aria-controls="demo-panel" @click="selectScenario(2)" :aria-selected="isScenarioActive(2)" :tabindex="isScenarioActive(2) ? 0 : -1" :class="isScenarioActive(2) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 w-full rounded-lg border px-4 py-2 text-left text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-14">Manufacturing · Odoo</button>
+                <button type="button" role="tab" id="demo-tab-3" aria-controls="demo-panel" @click="selectScenario(3)" :aria-selected="isScenarioActive(3)" :tabindex="isScenarioActive(3) ? 0 : -1" :class="isScenarioActive(3) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 w-full rounded-lg border px-4 py-2 text-left text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-14">Public services</button>
+                <button type="button" role="tab" id="demo-tab-4" aria-controls="demo-panel" @click="selectScenario(4)" :aria-selected="isScenarioActive(4)" :tabindex="isScenarioActive(4) ? 0 : -1" :class="isScenarioActive(4) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 w-full rounded-lg border px-4 py-2 text-left text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-14">Umrah &amp; Hajj</button>
+                <button type="button" role="tab" id="demo-tab-5" aria-controls="demo-panel" @click="selectScenario(5)" :aria-selected="isScenarioActive(5)" :tabindex="isScenarioActive(5) ? 0 : -1" :class="isScenarioActive(5) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 w-full rounded-lg border px-4 py-2 text-left text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:min-h-14">Influencer</button>
+              </div>
+            </div>
+            <div class="mx-auto w-full max-w-md rounded-3xl border border-border bg-surface shadow-card p-3 sm:p-4 lg:mx-0 lg:shrink-0">
+              <div class="flex items-center justify-center gap-1.5 pb-3" aria-hidden="true">
+                <span class="h-1.5 w-1.5 rounded-full bg-fg"></span>
+                <span class="h-1.5 w-14 rounded-full bg-fg"></span>
+              </div>
+              <div id="demo-panel" role="tabpanel" :aria-labelledby="'demo-tab-' + active" tabindex="0" class="phone-screen wa-scope wa-screen overflow-hidden rounded-2xl border border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <div class="wa-header flex items-center gap-3 border-b border-border px-4 py-3">
+                  <span class="wa-avatar flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white font-display text-lg text-[#111B21]" aria-hidden="true" x-text="activeScenario.business.charAt(0)">B</span>
+                  <div class="min-w-0 flex-1">
+                    <p class="truncate font-display text-lg leading-none text-[#111B21]" x-text="activeScenario.business">Bright Smile Dental</p>
+                    <p class="wa-muted mt-1.5 flex items-center gap-2 text-sm"><span class="h-1.5 w-1.5 rounded-full bg-[#54656F]" aria-hidden="true"></span>replies instantly</p>
+                  </div>
+                  <span class="wa-muted shrink-0 rounded-full border border-[#D1D7DB] px-2.5 py-1 text-xs" x-text="activeScenario.channel">WhatsApp</span>
+                </div>
+
+                <div x-ref="chatbox" class="h-[520px] space-y-3 overflow-y-auto p-4 lg:h-[660px]" aria-hidden="true">
+                  <p class="wa-muted pb-1 text-center text-sm" aria-hidden="true">Today</p>
+                  <template x-for="(m, i) in visible()" :key="i">
+                    <div class="flex" :class="m.from === 'user' ? 'justify-end' : 'justify-start'">
+                      <div class="max-w-[82%] rounded-2xl px-4 py-2.5 text-base leading-relaxed"
+                           :class="m.from === 'user' ? 'wa-bubble-user rounded-br-sm' : 'wa-bubble-bot rounded-bl-sm'">
+                        <span x-text="m.text"></span>
+                      </div>
+                    </div>
+                  </template>
+                  <div class="flex justify-start" x-show="typing" x-cloak>
+                    <div class="wa-bubble-bot flex items-center gap-1.5 rounded-2xl rounded-bl-sm px-4 py-3.5">
+                      <span class="h-2 w-2 animate-pulse rounded-full bg-[#8696A0]"></span>
+                      <span class="h-2 w-2 animate-pulse rounded-full bg-[#8696A0]"></span>
+                      <span class="h-2 w-2 animate-pulse rounded-full bg-[#8696A0]"></span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            </div>
+          </div>
+          <p class="mx-auto mt-5 max-w-md text-center text-sm text-muted" x-text="activeScenario.caption">Example conversation: answers come from the clinic's own hours and prices.</p>
+          <!-- Static, screen-reader-only transcript of the same conversation -->
+          <p class="sr-only" x-text="activeScenario.srDescription">Example conversation for a dental clinic: a customer asks the cleaning price, Conversa offers Saturday 10:00 or 15:30, the customer picks 10:00, and the booking is confirmed with a reminder the day before.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CAPABILITY TABS ======================= -->
+    <section class="border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24" x-data="tabs(0)">
+        <div class="mb-10 max-w-2xl" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">What it does for you</h2>
+        </div>
+
+        <div class="flex flex-wrap gap-2" role="tablist" aria-label="Capabilities" @keydown="onKeydown($event)">
+          <button type="button" role="tab" id="cap-tab-0" aria-controls="cap-panel-0" @click="select(0)" :aria-selected="isActive(0)" :tabindex="isActive(0) ? 0 : -1" :class="isActive(0) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Answers questions</button>
+          <button type="button" role="tab" id="cap-tab-1" aria-controls="cap-panel-1" @click="select(1)" :aria-selected="isActive(1)" :tabindex="isActive(1) ? 0 : -1" :class="isActive(1) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Moves leads</button>
+          <button type="button" role="tab" id="cap-tab-2" aria-controls="cap-panel-2" @click="select(2)" :aria-selected="isActive(2)" :tabindex="isActive(2) ? 0 : -1" :class="isActive(2) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Books meetings</button>
+          <button type="button" role="tab" id="cap-tab-3" aria-controls="cap-panel-3" @click="select(3)" :aria-selected="isActive(3)" :tabindex="isActive(3) ? 0 : -1" :class="isActive(3) ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Grows sales</button>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-12">
+          <div class="lg:col-span-5 lg:self-center">
+            <div x-show="isActive(0)" x-cloak role="tabpanel" id="cap-panel-0" aria-labelledby="cap-tab-0" tabindex="0" class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">
+              <h3 class="font-display text-2xl text-fg">Answers questions</h3>
+              <p class="mt-3 text-lg text-muted">Answers use your own prices and opening hours, not guesses.</p>
+            </div>
+            <div x-show="isActive(1)" x-cloak role="tabpanel" id="cap-panel-1" aria-labelledby="cap-tab-1" tabindex="0" class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">
+              <h3 class="font-display text-2xl text-fg">Moves leads</h3>
+              <p class="mt-3 text-lg text-muted">It captures key details and qualifies the lead for you.</p>
+            </div>
+            <div x-show="isActive(2)" x-cloak role="tabpanel" id="cap-panel-2" aria-labelledby="cap-tab-2" tabindex="0" class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">
+              <h3 class="font-display text-2xl text-fg">Books meetings</h3>
+              <p class="mt-3 text-lg text-muted">It offers your free slots and books the meeting.</p>
+            </div>
+            <div x-show="isActive(3)" x-cloak role="tabpanel" id="cap-panel-3" aria-labelledby="cap-tab-3" tabindex="0" class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">
+              <h3 class="font-display text-2xl text-fg">Grows sales</h3>
+              <p class="mt-3 text-lg text-muted">It follows up and remembers every customer.</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="rounded-2xl border border-border bg-surface p-6 sm:p-8">
+              <div x-show="isActive(0)" x-cloak class="space-y-3">
+                <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">Do you deliver to Puchong?</p>
+                <p class="w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Yes, next-day delivery to Puchong, free delivery over your minimum order. Want to place an order?</p>
+              </div>
+              <div x-show="isActive(1)" x-cloak class="space-y-3">
+                <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">Hi, I need a quote for 30 chairs.</p>
+                <p class="w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Happy to help. Which city, and when do you need them? I have your number and will pass this to the team.</p>
+              </div>
+              <div x-show="isActive(2)" x-cloak class="space-y-3">
+                <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">Can I see someone this week?</p>
+                <p class="w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Thursday 3pm and Friday 10am are free. Which suits you? I will send a reminder the day before.</p>
+              </div>
+              <div x-show="isActive(3)" x-cloak class="space-y-3">
+                <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">I will think about it and come back.</p>
+                <p class="w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Of course. I will keep your details here so we pick up right where we left off.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= HOW IT WORKS ======================== -->
+    <section id="how-it-works" class="scroll-mt-24 border-b border-border bg-bg-alt">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="mb-12 max-w-2xl" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">How it works</h2>
+          <p class="mt-4 text-lg text-muted">Three steps, no code.</p>
+        </div>
+
+        <ol class="border-l border-border"> <!-- the spine runs the full height of the list -->
+          <!-- Step 1: numeral on the spine, content right -->
+          <li class="relative grid grid-cols-1 gap-6 py-8 pl-6 lg:grid-cols-12 lg:gap-x-10 lg:py-12">
+            <div class="lg:col-span-2">
+              <span aria-hidden="true" class="font-display text-step leading-none text-fg">1</span>
+            </div>
+            <div class="lg:col-span-4">
+              <h3 class="font-display text-2xl text-fg">Connect a channel</h3>
+              <p class="mt-3 text-lg text-muted">Add web chat, WhatsApp, Telegram or Odoo.</p>
+            </div>
+            <div class="max-w-xl lg:col-span-5 lg:col-start-8 lg:max-w-none">
+              <div class="rounded-xl border border-border bg-surface p-5">
+                <p class="text-base text-muted">Channels</p>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-border px-4 py-2 text-base text-fg">Web chat</span>
+                  <span class="rounded-full border border-border px-4 py-2 text-base text-fg">WhatsApp</span>
+                  <span class="rounded-full border border-border px-4 py-2 text-base text-fg">Telegram</span>
+                  <span class="rounded-full border border-border px-4 py-2 text-base text-fg">Odoo</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Step 2: content indented one column — the sequence bends, the spine stays -->
+          <li class="relative grid grid-cols-1 gap-6 py-8 pl-6 lg:grid-cols-12 lg:gap-x-10 lg:py-12">
+            <div class="lg:col-span-2">
+              <span aria-hidden="true" class="font-display text-step leading-none text-fg">2</span>
+            </div>
+            <div class="lg:col-span-4 lg:col-start-4">
+              <h3 class="font-display text-2xl text-fg">Teach it</h3>
+              <p class="mt-3 text-lg text-muted">Give it your prices, hours and documents to answer from.</p>
+            </div>
+            <div class="max-w-xl lg:col-span-4 lg:col-start-9 lg:max-w-none">
+              <div class="rounded-xl border border-border bg-surface p-5">
+                <p class="text-base text-muted">Your documents</p>
+                <div class="mt-3 space-y-2">
+                  <p class="rounded border border-border px-4 py-2.5 text-base text-fg">Price list</p>
+                  <p class="rounded border border-border px-4 py-2.5 text-base text-fg">Opening hours</p>
+                  <p class="rounded border border-border px-4 py-2.5 text-base text-fg">Common questions</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Step 3: numeral on the spine, content right -->
+          <li class="relative grid grid-cols-1 gap-6 py-8 pl-6 lg:grid-cols-12 lg:gap-x-10 lg:py-12">
+            <div class="lg:col-span-2">
+              <span aria-hidden="true" class="font-display text-step leading-none text-fg">3</span>
+            </div>
+            <div class="lg:col-span-4">
+              <h3 class="font-display text-2xl text-fg">Switch it on</h3>
+              <p class="mt-3 text-lg text-muted">It answers right away and hands over to a person when unsure.</p>
+            </div>
+            <div class="max-w-xl lg:col-span-5 lg:col-start-8 lg:max-w-none">
+              <div class="rounded-xl border border-border bg-surface p-5">
+                <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">Can you check if my order shipped?</p>
+                <p class="mt-2 w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Not sure about that one. Let me get a colleague.</p>
+                <p class="mt-2 text-base text-muted">Handed to your team with the full history.</p>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ======================= FEATURES ============================== -->
+    <section id="features" class="scroll-mt-24 border-b border-border bg-bg-quiet">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="mb-10 max-w-2xl" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">What you get</h2>
+        </div>
+
+        <div class="divide-y divide-border border-y border-border">
+          <div class="grid grid-cols-1 gap-2 py-6 md:grid-cols-12 md:items-baseline">
+            <p class="font-display text-2xl text-fg md:col-span-5">One memory across every channel</p>
+            <p class="text-base text-muted md:col-span-7">Web chat, WhatsApp, Telegram, Odoo: customers pick up where they left off, on any channel, without repeating themselves.</p>
+          </div>
+          <div class="grid grid-cols-1 gap-2 py-6 md:grid-cols-12 md:items-baseline">
+            <p class="font-display text-2xl text-fg md:col-span-5">Remembers every customer</p>
+            <p class="text-base text-muted md:col-span-7">The full history stays, so replies stay in context months later.</p>
+          </div>
+          <div class="grid grid-cols-1 gap-2 py-6 md:grid-cols-12 md:items-baseline">
+            <p class="font-display text-2xl text-fg md:col-span-5">Answers from your documents</p>
+            <p class="text-base text-muted md:col-span-7">Prices, hours, and policies answered from your own documents, not guesses.</p>
+          </div>
+          <div class="grid grid-cols-1 gap-2 py-6 md:grid-cols-12 md:items-baseline">
+            <p class="font-display text-2xl text-fg md:col-span-5">Hands off to a human</p>
+            <p class="text-base text-muted md:col-span-7">When unsure, the conversation goes to your team with full context.</p>
+          </div>
+          <div class="grid grid-cols-1 gap-2 py-6 md:grid-cols-12 md:items-baseline">
+            <p class="font-display text-2xl text-fg md:col-span-5">Your data stays yours</p>
+            <p class="text-base text-muted md:col-span-7">Read-only access; you decide what it may see; nothing is copied out.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== WORKED EXAMPLES ======================= -->
+    <!-- Simulation examples built only from features that are live today.
+         Explicitly not customer results: no real customers, no invented
+         metrics, no outcome numbers. -->
+    <section id="case-studies" class="scroll-mt-24 border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24" x-data="cases(0)">
+        <div class="mx-auto max-w-3xl text-center" data-reveal>
+          <p class="inline-flex items-center rounded-full bg-wash px-4 py-1.5 text-sm font-medium text-fg-strong">Application simulations: not past customer results</p>
+          <h2 class="mt-6 font-display text-3xl text-fg sm:text-4xl">Any business, one online admin</h2>
+          <p class="mt-4 text-base text-muted">One assistant, tuned to your business.</p>
+        </div>
+
+        <!-- Tab bar; the active tab is highlighted (Alpine `cases`) -->
+        <div class="mt-10 flex flex-wrap justify-center gap-3" role="tablist" aria-label="Simulation" @keydown="onKeydown($event)">
+          <button type="button" role="tab" id="case-tab-0" aria-controls="case-panel-0" @click="select(0)" :aria-selected="isActive(0)" :tabindex="isActive(0) ? 0 : -1" :class="isActive(0) ? 'border-accent bg-wash text-fg' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Retail &amp; e-commerce</button>
+          <button type="button" role="tab" id="case-tab-1" aria-controls="case-panel-1" @click="select(1)" :aria-selected="isActive(1)" :tabindex="isActive(1) ? 0 : -1" :class="isActive(1) ? 'border-accent bg-wash text-fg' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Manufacturing · Odoo</button>
+          <button type="button" role="tab" id="case-tab-2" aria-controls="case-panel-2" @click="select(2)" :aria-selected="isActive(2)" :tabindex="isActive(2) ? 0 : -1" :class="isActive(2) ? 'border-accent bg-wash text-fg' : 'border-border text-muted hover:text-fg'" class="min-h-11 rounded-full border px-5 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Public services</button>
+        </div>
+
+        <div class="mt-10">
+          <!-- Example 1: retail & e-commerce -->
+          <div x-show="isActive(0)" x-cloak role="tabpanel" id="case-panel-0" aria-labelledby="case-tab-0" tabindex="0" class="rounded-2xl border border-border bg-surface p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:p-8">
+            <p class="text-sm uppercase tracking-[0.22em] text-muted">Retail &amp; e-commerce</p>
+            <p class="mt-2 font-display text-xl text-fg">An online fashion store</p>
+            <div class="mt-6 grid gap-6 sm:grid-cols-2">
+              <div>
+                <h3 class="font-display text-lg text-fg">The problem</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted">Shoppers ask about stock, size, price, shipping, and COD day and night. Messages wait after hours, and returning buyers are treated like strangers. Product info sits in catalogs, spreadsheets, and templates.</p>
+              </div>
+              <div>
+                <h3 class="font-display text-lg text-fg">How Conversa solves it</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted">The customer bot answers stock, size, price, shipping, and COD from your catalog and live stock data on the website widget and WhatsApp, day and night. Once a shopper shares a phone number, their history follows across channels. Tricky cases reach an admin with the full chat; a knowledge-gaps report shows what it could not answer.</p>
+              </div>
+            </div>
+            <div class="mt-6 border-t border-border pt-5">
+              <p class="text-sm font-medium text-muted">What's live today</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Customer bot</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Website widget + WhatsApp</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Catalog &amp; live stock</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Cross-channel memory</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Handoff to admin</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Knowledge-gaps report</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 2: manufacturing (Odoo) -->
+          <div x-show="isActive(1)" x-cloak role="tabpanel" id="case-panel-1" aria-labelledby="case-tab-1" tabindex="0" class="rounded-2xl border border-border bg-surface p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:p-8">
+            <p class="text-sm uppercase tracking-[0.22em] text-muted">Manufacturing · Odoo</p>
+            <p class="mt-2 font-display text-xl text-fg">A factory with Odoo ERP</p>
+            <div class="mt-6 grid gap-6 sm:grid-cols-2">
+              <div>
+                <h3 class="font-display text-lg text-fg">The problem</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted">Buyers ask about products, MOQ, and lead times. The owner, sales, and finance wait on exported reports: orders, stock, invoices, and profit &amp; loss, one export at a time.</p>
+              </div>
+              <div>
+                <h3 class="font-display text-lg text-fg">How Conversa solves it</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted">A customer bot answers buyers from spec sheets, certificates, and the product catalog: material, dimensions, MOQ, lead time, and which distributor covers their city. On staff WhatsApp/Telegram numbers, a personal assistant reads live Odoo records and answers in plain language: sales orders, stock, invoices, CRM leads, profit &amp; loss, and tax summaries. Reads are read-only by default; changing anything needs write access switched on in Odoo, and it proposes the change first, then waits for your yes.</p>
+              </div>
+            </div>
+            <div class="mt-6 border-t border-border pt-5">
+              <p class="text-sm font-medium text-muted">What's live today</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Customer bot from documents</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Personal assistant on WhatsApp/Telegram</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Live Odoo reads</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Read-only by default</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Proposed writes + your yes</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 3: private & public services -->
+          <div x-show="isActive(2)" x-cloak role="tabpanel" id="case-panel-2" aria-labelledby="case-tab-2" tabindex="0" class="rounded-2xl border border-border bg-surface p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:p-8">
+            <p class="text-sm uppercase tracking-[0.22em] text-muted">Public services</p>
+            <p class="mt-2 font-display text-xl text-fg">A clinic, a campus, or a licensing office</p>
+            <div class="mt-6 grid gap-6 sm:grid-cols-2">
+              <div>
+                <h3 class="font-display text-lg text-fg">The problem</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted">Most of the queue is information and paperwork: what do I need, how much is it, when are you open, how do I register. Asked hundreds of times.</p>
+              </div>
+              <div>
+                <h3 class="font-display text-lg text-fg">How Conversa solves it</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted">The assistant answers requirements, fees, schedules, locations, and procedures from the official documents the office uploads: PDF or photos. It walks people through registration, checks documents against the checklist, and picks up where a returning person left off, on any channel. Anything needing judgement goes to a named officer in the live inbox.</p>
+              </div>
+            </div>
+            <div class="mt-6 border-t border-border pt-5">
+              <p class="text-sm font-medium text-muted">What's live today</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Answers from official documents</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Registration walkthrough &amp; document check</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Cross-channel memory</span>
+                <span class="rounded-full bg-wash px-3 py-1 text-sm text-fg-strong">Handoff to a named officer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== CHANNEL PARITY (one brain) ==================== -->
+    <section id="channel-parity" class="scroll-mt-24 border-b border-border bg-bg-alt">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="mb-10 max-w-2xl" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">One answer, on every channel</h2>
+          <p class="mt-4 text-lg text-muted">WhatsApp, website chat, Telegram, Odoo: one Conversa brain, one memory per customer.</p>
+        </div>
+
+        <div class="rounded-2xl border border-border bg-surface p-6 sm:p-8" data-reveal>
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <span class="rounded-full border border-border px-4 py-2 text-center text-base text-fg">WhatsApp</span>
+            <span class="rounded-full border border-border px-4 py-2 text-center text-base text-fg">Web chat</span>
+            <span class="rounded-full border border-border px-4 py-2 text-center text-base text-fg">Telegram</span>
+            <span class="rounded-full border border-border px-4 py-2 text-center text-base text-fg">Odoo</span>
+          </div>
+          <p class="my-4 text-center text-2xl text-muted" aria-hidden="true">↓</p>
+          <div class="mx-auto w-fit rounded-full bg-wash px-6 py-3 font-display text-xl text-fg-strong sm:text-2xl">One Conversa brain</div>
+          <p class="mt-4 text-center text-base text-muted">One memory per customer: every channel reads from and writes to the same place.</p>
+        </div>
+
+        <ul class="mt-8 grid grid-cols-1 gap-4 text-lg text-muted lg:grid-cols-2">
+          <li class="border-t border-border pt-4">A customer can start on your website and continue on WhatsApp or Telegram. Conversa already knows the whole history.</li>
+          <li class="border-t border-border pt-4">Teach it once and every channel gives the same up-to-date answer, because all of them come from one source you control.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================== PERSONA ==================== -->
+    <section id="persona" class="scroll-mt-24 border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+        <div class="mb-10 max-w-2xl" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Its voice is yours to set</h2>
+          <p class="mt-4 text-lg text-muted">Formal or friendly, Bahasa Indonesia, English, or a natural mix.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2" data-reveal>
+          <div class="rounded-2xl border border-border bg-surface p-6">
+            <p class="text-sm uppercase tracking-[0.22em] text-muted">A robot menu</p>
+            <div class="mt-4 space-y-3">
+              <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">I have a question about my delivery.</p>
+              <p class="w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Please choose: 1. Track order 2. Returns 3. Talk to an agent</p>
+            </div>
+            <p class="mt-4 text-base text-muted">Real questions rarely fit inside three options.</p>
+          </div>
+          <div class="rounded-2xl border border-border bg-surface p-6">
+            <p class="text-sm uppercase tracking-[0.22em] text-muted">Conversa</p>
+            <div class="mt-4 space-y-3">
+              <p class="ml-auto w-fit max-w-full rounded-2xl rounded-br-sm bg-fg px-4 py-2.5 text-base text-bg">I have a question about my delivery.</p>
+              <p class="w-fit max-w-full rounded-2xl rounded-bl-sm border border-border bg-surface px-4 py-2.5 text-base text-fg">Of course. May I have your order number? If you don't have it yet, just send the name and order date.</p>
+            </div>
+            <p class="mt-4 text-base text-muted">It understands the customer's own words.</p>
+          </div>
+        </div>
+
+        <p class="mt-8 max-w-2xl text-lg text-muted" data-reveal>You set the rules and guardrails too.</p>
+      </div>
+    </section>
+    <!-- ========================== PRICING =========================== -->
+    <!-- Plan figures come from the official pitch deck. Sign-up still happens on conversa-bot.com/pricing. -->
+    <section id="pricing" class="scroll-mt-24 border-b border-border">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24" x-data="{ usd: false }">
+        <div class="mx-auto max-w-3xl text-center" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Clear pricing</h2>
+          <p class="mt-4 text-lg text-muted">Sign-up still happens on our pricing page. Monthly, no hidden fees.</p>
+        </div>
+
+        <div class="mt-8 flex items-center justify-center gap-2" role="group" aria-label="Choose currency">
+          <button type="button" @click="usd = false" :aria-pressed="(!usd).toString()" :class="!usd ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-9 rounded border px-4 text-sm font-medium transition-colors">IDR</button>
+          <button type="button" @click="usd = true" :aria-pressed="usd.toString()" :class="usd ? 'border-accent bg-wash text-fg-strong' : 'border-border text-muted hover:text-fg'" class="min-h-9 rounded border px-4 text-sm font-medium transition-colors">USD</button>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3" data-reveal>
+          <!-- Starter -->
+          <div class="flex flex-col rounded-2xl border border-border bg-surface p-6 sm:p-8">
+            <h3 class="font-display text-2xl text-fg">Starter</h3>
+            <p class="mt-4 font-display text-3xl text-fg"><span x-text="usd ? '$29' : 'Rp399.000'">Rp399.000</span><span class="text-base text-muted" x-text="usd ? '/mo' : '/month'">/month</span></p>
+            <p class="mt-1 text-sm text-muted">or <span x-text="usd ? '$25' : 'Rp349.000'">Rp349.000</span><span x-text="usd ? '/mo' : '/month'">/month</span> with your own AI key</p>
+            <ul class="mt-6 space-y-2 text-base text-muted">
+              <li>250 conversations</li>
+              <li>100 document extractions</li>
+              <li>250 MB knowledge storage</li>
+            </ul>
+            <a href="https://conversa-bot.com/register" class="mt-8 inline-flex min-h-11 items-center justify-center rounded border border-border px-6 font-medium text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Try free</a>
+          </div>
+
+          <!-- Growth (recommended) -->
+          <div class="relative flex flex-col rounded-2xl border-2 border-accent bg-surface p-6 shadow-card sm:p-8">
+            <span class="absolute -top-3 left-6 rounded-full bg-accent px-3 py-1 text-xs font-medium text-charcoal">Recommended</span>
+            <h3 class="font-display text-2xl text-fg">Growth</h3>
+            <p class="mt-4 font-display text-3xl text-fg"><span x-text="usd ? '$99' : 'Rp1.199.000'">Rp1.199.000</span><span class="text-base text-muted" x-text="usd ? '/mo' : '/month'">/month</span></p>
+            <p class="mt-1 text-sm text-muted">or <span x-text="usd ? '$89' : 'Rp1.079.000'">Rp1.079.000</span><span x-text="usd ? '/mo' : '/month'">/month</span> with your own AI key</p>
+            <ul class="mt-6 space-y-2 text-base text-muted">
+              <li>1,000 conversations</li>
+              <li>400 document extractions</li>
+              <li>1 GB knowledge storage</li>
+              <li>500 skill calls</li>
+              <li>Website crawl (auto-refreshed)</li>
+              <li>Web search &amp; browse skill</li>
+            </ul>
+            <a href="https://conversa-bot.com/register" class="mt-8 inline-flex min-h-11 items-center justify-center rounded bg-accent px-6 font-medium text-charcoal transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Try free</a>
+          </div>
+
+          <!-- Pro -->
+          <div class="flex flex-col rounded-2xl border border-border bg-surface p-6 sm:p-8">
+            <h3 class="font-display text-2xl text-fg">Pro</h3>
+            <p class="mt-4 font-display text-3xl text-fg"><span x-text="usd ? '$299' : 'Rp3.299.000'">Rp3.299.000</span><span class="text-base text-muted" x-text="usd ? '/mo' : '/month'">/month</span></p>
+            <p class="mt-1 text-sm text-muted">or <span x-text="usd ? '$269' : 'Rp2.969.000'">Rp2.969.000</span><span x-text="usd ? '/mo' : '/month'">/month</span> with your own AI key</p>
+            <ul class="mt-6 space-y-2 text-base text-muted">
+              <li>3,500 conversations</li>
+              <li>1,500 document extractions</li>
+              <li>5 GB knowledge storage</li>
+              <li>2,000 skill calls</li>
+              <li>API tools (order status, shipping, your own systems)</li>
+              <li>Odoo add-on: Pro plan only</li>
+              <li>Personal assistant: for the owner only. Summarit (summon / query your whole system via Conversa)</li>
+            </ul>
+            <a href="https://conversa-bot.com/register" class="mt-8 inline-flex min-h-11 items-center justify-center rounded border border-border px-6 font-medium text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Try free</a>
+          </div>
+        </div>
+
+        <div class="mx-auto mt-12 max-w-3xl" data-reveal>
+          <p class="text-sm font-medium text-fg">Every plan includes:</p>
+          <ul class="mt-3 grid grid-cols-1 gap-2 text-base text-muted sm:grid-cols-2">
+            <li>Gravija context engine (hybrid search, knowledge graph, self-repair)</li>
+            <li>Per-customer memory across channels</li>
+            <li>Guardrails + multilingual answers</li>
+            <li>Catalog, files, FAQs, and PDFs</li>
+            <li>Live read-only database</li>
+            <li>Website widget + WhatsApp + Telegram</li>
+            <li>Live inbox hand-over</li>
+            <li>Insights + knowledge-gaps report</li>
+          </ul>
+          <div class="mt-8 rounded-lg border border-border bg-bg-quiet p-4" data-reveal>
+            <p class="flex gap-3 text-sm text-muted"><span aria-hidden="true" class="font-bold text-fg-strong">*</span><span>One conversation is one customer within a single 24-hour window, however many messages. Odoo licensing and implementation are separate. Prices as of September 2026. Prices are also shown in USD: use the IDR/USD switch above.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== FAQ ============================== -->
+    <section id="faq" class="scroll-mt-24 border-b border-border bg-bg-alt">
+      <div class="mx-auto max-w-3xl px-6 py-16 lg:py-24" x-data="accordion">
+        <div class="mb-10" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Questions people ask</h2>
+        </div>
+
+        <div class="divide-y divide-border border-y border-border">
+          <div>
+            <h3>
+              <button type="button" id="faq-q-0" @click="toggle(0)" :aria-expanded="isOpen(0)" aria-controls="faq-a-0" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">What is Conversa, in one sentence?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(0) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(0)" x-cloak id="faq-a-0" role="region" aria-labelledby="faq-q-0"><p class="pb-6 text-lg text-muted">It is your online admin that answers your customers using your own information, and hands over to you when needed.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-1" @click="toggle(1)" :aria-expanded="isOpen(1)" aria-controls="faq-a-1" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">What if it doesn't know the answer?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(1) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(1)" x-cloak id="faq-a-1" role="region" aria-labelledby="faq-q-1"><p class="pb-6 text-lg text-muted">It says so and passes the conversation to you. It does not guess.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-2" @click="toggle(2)" :aria-expanded="isOpen(2)" aria-controls="faq-a-2" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Do I need to be technical?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(2) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(2)" x-cloak id="faq-a-2" role="region" aria-labelledby="faq-q-2"><p class="pb-6 text-lg text-muted">No. You add your documents and switch it on. If you can use WhatsApp, you can use Conversa.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-3" @click="toggle(3)" :aria-expanded="isOpen(3)" aria-controls="faq-a-3" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Which channels?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(3) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(3)" x-cloak id="faq-a-3" role="region" aria-labelledby="faq-q-3"><p class="pb-6 text-lg text-muted">Web chat, WhatsApp, Telegram and Odoo.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-4" @click="toggle(4)" :aria-expanded="isOpen(4)" aria-controls="faq-a-4" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Will it give wrong answers?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(4) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(4)" x-cloak id="faq-a-4" role="region" aria-labelledby="faq-q-4"><p class="pb-6 text-lg text-muted">It answers from your own documents only. When it is unsure, a person takes over.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-5" @click="toggle(5)" :aria-expanded="isOpen(5)" aria-controls="faq-a-5" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Do you replace my team?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(5) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(5)" x-cloak id="faq-a-5" role="region" aria-labelledby="faq-q-5"><p class="pb-6 text-lg text-muted">No. It handles the repeat questions so your team can focus on the harder ones.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-6" @click="toggle(6)" :aria-expanded="isOpen(6)" aria-controls="faq-a-6" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">Is my data safe?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(6) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(6)" x-cloak id="faq-a-6" role="region" aria-labelledby="faq-q-6"><p class="pb-6 text-lg text-muted">You choose what it can see, and database access is read-only.</p></div>
+          </div>
+          <div>
+            <h3>
+              <button type="button" id="faq-q-7" @click="toggle(7)" :aria-expanded="isOpen(7)" aria-controls="faq-a-7" class="flex w-full min-h-11 items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                <span class="font-display text-xl text-fg">How do I try it?</span>
+                <span class="text-2xl text-muted" aria-hidden="true" x-text="isOpen(7) ? '\u2212' : '+'"></span>
+              </button>
+            </h3>
+            <div x-show="isOpen(7)" x-cloak id="faq-a-7" role="region" aria-labelledby="faq-q-7"><p class="pb-6 text-lg text-muted">Start the 3-day trial. It covers 2 customers and needs no card.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA BAND + LEAD FORM =================== -->
+    <section id="start" class="dark-band scroll-mt-24 border-b border-border">
+      <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-16 lg:grid-cols-12 lg:py-24">
+        <div class="lg:col-span-5 lg:self-center" data-reveal>
+          <h2 class="font-display text-3xl text-fg sm:text-4xl">Try free for 3 days</h2>
+          <p class="mt-4 text-lg text-muted">Tell us where to reach you and we will help you set it up. Three days, two customers, no card.</p>
+          <p class="mt-6 text-base text-muted">Prefer to talk first?</p>
+          <a href="https://wa.me/6281807177764?text=Hi%20Conversa%2C%20I%27d%20like%20to%20ask%20about%20Conversa%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex min-h-11 items-center gap-2 rounded border border-border px-6 font-medium text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2A9.88 9.88 0 0 0 2.16 11.88c0 1.74.46 3.45 1.32 4.95L2 22l5.3-1.39a9.9 9.9 0 0 0 4.74 1.21h.01A9.88 9.88 0 0 0 12.04 2Zm5.8 14.12c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.03.24-3.47-.72-2.94-1.16-4.8-4.2-4.95-4.4-.14-.2-1.17-1.57-1.17-3 0-1.42.74-2.12 1-2.41.26-.29.57-.36.76-.36h.55c.17 0 .41-.07.63.48.24.58.81 2 .88 2.15.07.14.12.31.02.5-.1.2-.15.32-.29.5-.15.17-.31.38-.44.51-.14.14-.29.3-.12.59.17.29.74 1.23 1.6 1.99 1.1.98 2.03 1.28 2.32 1.43.29.15.46.12.63-.07.17-.2.72-.84.91-1.13.19-.29.39-.24.65-.14.26.1 1.67.79 1.95.93.29.14.48.21.55.33.07.11.07.67-.17 1.35Z"/></svg>Talk to us</a>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div x-data="leadForm" class="rounded-2xl border border-border bg-surface shadow-card p-6 sm:p-8">
+            <form x-show="!submitted" @submit.prevent="submit()" novalidate class="space-y-5">
+              <div>
+                <label for="lf-name" class="block text-base text-fg">Name</label>
+                <input id="lf-name" name="name" type="text" autocomplete="name" x-model="name" :aria-invalid="errors.name" :aria-describedby="errors.name ? 'lf-name-error' : null"
+                       class="mt-2 min-h-11 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" />
+                <p x-show="errors.name" x-cloak id="lf-name-error" class="mt-2 text-base text-fg font-medium">Please enter your name.</p>
+              </div>
+              <div>
+                <label for="lf-whatsapp" class="block text-base text-fg">WhatsApp number</label>
+                <input id="lf-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" x-model="whatsapp" :aria-invalid="errors.whatsapp" :aria-describedby="errors.whatsapp ? 'lf-whatsapp-error' : null"
+                       class="mt-2 min-h-11 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" />
+                <p x-show="errors.whatsapp" x-cloak id="lf-whatsapp-error" class="mt-2 text-base text-fg font-medium">Please enter a WhatsApp number.</p>
+              </div>
+              <div>
+                <label for="lf-type" class="block text-base text-fg">Business type</label>
+                <select id="lf-type" name="business_type" x-model="businessType"
+                        class="mt-2 min-h-11 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                  <option value="">Choose your business type</option>
+                  <option>Clinic</option>
+                  <option>Shop or retail</option>
+                  <option>School or course</option>
+                  <option>Service provider</option>
+                  <option>Online store</option>
+                  <option>Agency</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="lf-message" class="block text-base text-fg">Message (optional)</label>
+                <textarea id="lf-message" name="message" rows="3" x-model="message"
+                          class="mt-2 w-full rounded border border-border bg-surface px-4 py-2.5 text-base text-fg placeholder:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"></textarea>
+              </div>
+              <button type="submit" :disabled="sending" class="inline-flex min-h-11 items-center justify-center rounded bg-accent px-6 font-medium text-charcoal transition-opacity hover:opacity-90 disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg">Try free</button>
+            </form>
+
+            <div x-show="submitted" x-cloak role="status" class="py-6">
+              <h3 x-ref="successTitle" tabindex="-1" class="font-display text-2xl text-fg focus-visible:outline-none">Thanks. You are in.</h3>
+              <p class="mt-3 text-lg text-muted">We have your details and will contact you on WhatsApp to set up your 3-day trial.</p>
+              <p x-show="fallbackUrl" x-cloak class="mt-4 text-base text-muted">
+                <a :href="fallbackUrl" target="_blank" rel="noopener noreferrer" class="rounded underline transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Auto-send failed? Continue via WhatsApp</a>
+              </p>
+              <button type="button" @click="reset()" class="mt-6 inline-flex min-h-11 items-center rounded border border-border px-5 text-base text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">Send another</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER =========================== -->
+  <footer class="bg-bg">
+    <div class="mx-auto max-w-6xl px-6 py-12">
+      <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+        <div>
+          <a href="../" class="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded" aria-label="Conversa home">
+            <img src="../public/brand/conversa-logo-light.svg" alt="" width="32" height="32" class="h-8 w-8" />
+            <span class="font-display text-xl tracking-tight">conversa</span>
+          </a>
+          <p class="mt-4 max-w-xs text-base text-muted">Your online admin across WhatsApp, your website, Telegram and Odoo. It answers customers using your own prices and rules, and hands off to your team when needed.</p>
+        </div>
+
+        <nav class="flex flex-col gap-3 text-base" aria-label="Site links">
+          <p class="text-sm font-medium uppercase tracking-wide text-muted" id="footer-nav-pages">Pages</p>
+          <a href="#how-it-works" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">How it works</a>
+          <a href="#features" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Features</a>
+          <a href="#case-studies" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Simulation</a>
+          <a href="#pricing" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Pricing</a>
+          <a href="#faq" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">FAQ</a>
+          <a href="/partner/" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Partners</a>
+        </nav>
+
+        <nav class="flex flex-col gap-3 text-base" aria-label="Other links">
+          <p class="text-sm font-medium uppercase tracking-wide text-muted" id="footer-nav-company">Company</p>
+          <a href="https://conversa-bot.com" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Main site</a>
+          <a href="https://conversa-bot.com/register" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Sign up</a>
+          <a href="https://conversa-bot.com/terms" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Terms</a>
+          <a href="https://conversa-bot.com/privacy" class="text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">Privacy</a>
+        </nav>
+
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center rounded border border-border text-base" role="group" aria-label="Language">
+            <span class="inline-flex min-h-11 min-w-11 items-center justify-center px-3 py-2 bg-wash text-fg-strong" aria-current="true">EN</span>
+            <a href="../" class="inline-flex min-h-11 min-w-11 items-center justify-center px-3 py-2 text-muted transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">ID</a>
+          </div>
+          <a href="https://wa.me/6281807177764?text=Hi%20Conversa%2C%20I%27d%20like%20to%20ask%20about%20Conversa%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-2 rounded border border-border px-5 text-base text-fg transition-colors hover:border-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2A9.88 9.88 0 0 0 2.16 11.88c0 1.74.46 3.45 1.32 4.95L2 22l5.3-1.39a9.9 9.9 0 0 0 4.74 1.21h.01A9.88 9.88 0 0 0 12.04 2Zm5.8 14.12c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.03.24-3.47-.72-2.94-1.16-4.8-4.2-4.95-4.4-.14-.2-1.17-1.57-1.17-3 0-1.42.74-2.12 1-2.41.26-.29.57-.36.76-.36h.55c.17 0 .41-.07.63.48.24.58.81 2 .88 2.15.07.14.12.31.02.5-.1.2-.15.32-.29.5-.15.17-.31.38-.44.51-.14.14-.29.3-.12.59.17.29.74 1.23 1.6 1.99 1.1.98 2.03 1.28 2.32 1.43.29.15.46.12.63-.07.17-.2.72-.84.91-1.13.19-.29.39-.24.65-.14.26.1 1.67.79 1.95.93.29.14.48.21.55.33.07.11.07.67-.17 1.35Z"/></svg>Talk to us</a>
+        </div>
+      </div>
+      <p class="mt-10 text-base text-muted">© 2026 Conversa</p>
+    </div>
+  </footer>
+
+  <!-- ===================== Floating WhatsApp button (FAB) ===================== -->
+  <div class="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
+    <a href="https://wa.me/6281807177764?text=Hi%20Conversa%2C%20I%27d%20like%20to%20try%20and%20ask%20about%20Conversa%20for%20my%20business."
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Chat with us on WhatsApp"
+       class="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform motion-safe:hover:scale-110 motion-safe:active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.002 3.2C8.94 3.2 3.2 8.94 3.2 16c0 2.26.59 4.47 1.71 6.42L3.2 28.8l6.55-1.68A12.77 12.77 0 0 0 16 28.8h.002c7.06 0 12.8-5.74 12.8-12.8s-5.74-12.8-12.8-12.8Zm0 23.36h-.002c-1.94 0-3.85-.52-5.51-1.51l-.4-.24-4.09 1.05 1.09-3.99-.26-.41a10.53 10.53 0 0 1-1.61-5.66c0-5.87 4.78-10.64 10.66-10.64 2.84 0 5.52 1.11 7.53 3.12a10.58 10.58 0 0 1 3.12 7.53c0 5.87-4.78 10.65-10.64 10.65Zm5.84-7.97c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.72.16-.21.32-.83 1.04-1.02 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.59-1.89-1.78-2.21-.19-.32-.02-.5.14-.66.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.53-.72-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.65 0 1.56 1.14 3.07 1.3 3.28.16.21 2.24 3.42 5.42 4.8.76.33 1.35.52 1.81.67.76.24 1.46.21 2 .13.61-.09 1.89-.77 2.15-1.52.27-.75.27-1.38.19-1.52-.08-.13-.29-.21-.61-.37Z"/></svg>
+      <span class="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded border border-border bg-bg px-3 py-1.5 text-sm font-medium text-fg shadow-card opacity-0 transition-opacity duration-200 group-hover:opacity-100 md:block"
+            role="tooltip">Chat with us</span>
+    </a>
+  </div>
+
+  <!-- Chat demo scenario data (plain data; editable without touching JS).
+       Illustration: not real customer data. The Odoo figures in the
+       manufacturing scenario come from the company's own official pitch deck. -->
+  <script type="application/json" id="chat-demo-data">
+    [
+      {
+        "id": "clinic",
+        "channel": "WhatsApp",
+        "business": "Bright Smile Dental",
+        "caption": "Example conversation: answers come from the clinic's own hours and prices.",
+        "srDescription": "Example conversation with Conversa, shown for a dental clinic: A customer asks about the price of a cleaning. Conversa offers to send the clinic's price list. The customer asks for a Saturday slot. Conversa offers Saturday 10:00 or 15:30, the customer picks 10:00, and Conversa confirms the booking and promises a reminder the day before.",
+        "messages": [
+          { "from": "user", "text": "Hi, I'd like to book a dental cleaning. How much would it be?" },
+          { "from": "bot",  "text": "Hello! Scaling and polishing depends on the package. I can send you our full price list right here. Would you like that?" },
+          { "from": "user", "text": "Yes please. Also, do you have anything left this Saturday?" },
+          { "from": "bot",  "text": "Just sent. This Saturday we still have 10:00 and 15:30 free. Which one suits you?" },
+          { "from": "user", "text": "10:00 works for me." },
+          { "from": "bot",  "text": "Booked: Saturday 10:00, dental cleaning. I'll send you a reminder the day before." },
+          { "from": "user", "text": "Perfect, thank you!" },
+          { "from": "bot",  "text": "You're welcome! If anything comes up, just message me here. See you Saturday!" }
+        ]
+      },
+      {
+        "id": "retail",
+        "channel": "Website chat",
+        "business": "Linen Fashion Store",
+        "caption": "Example conversation: stock and price come from the store's own catalog.",
+        "srDescription": "Example conversation with Conversa, shown for an online fashion store: A shopper asks whether the sage linen dress in size M is available and if COD to Jogja is possible. Conversa answers with stock and price from the store's catalog, helps pick a colour, confirms that orders before 3pm ship the same day, then notes the order: Sage Linen Dress, size M, one piece, COD to Jogja; an admin will confirm.",
+        "messages": [
+          { "from": "user", "text": "Hi, is the sage linen dress in size M still available? Can you do COD to Jogja?" },
+          { "from": "bot",  "text": "Yes! The Sage Linen Dress in size M has 3 left, at Rp289,000. COD to Jogja is available. Would you like me to help you order?" },
+          { "from": "user", "text": "Do you have it in black too?" },
+          { "from": "bot",  "text": "The black linen dress in size M has 2 left, same price, Rp289,000. Which one would you like?" },
+          { "from": "user", "text": "The sage one. Can it ship today?" },
+          { "from": "bot",  "text": "Yes, orders before 3pm ship the same day. Shall I start the order for you?" },
+          { "from": "user", "text": "Yes please." },
+          { "from": "bot",  "text": "Noted: Sage Linen Dress, size M, 1 piece, COD to Jogja. Our admin will confirm shortly." }
+        ]
+      },
+      {
+        "id": "manufacturing",
+        "channel": "WhatsApp",
+        "business": "Precision Works Ltd",
+        "caption": "Example conversation: figures come live from the company's own Odoo.",
+        "srDescription": "Example conversation with Conversa, shown for a manufacturer running Odoo: A business customer asks for the MOQ and lead time of grade A resin. Conversa answers from the company's own data and names the regional distributor. For a one-tonne order the lead time is shorter, and a formal quote is passed to the sales team. Conversa also summarises from Odoo: twelve unpaid invoices totalling Rp84,500,000, three of them over 30 days.",
+        "messages": [
+          { "from": "user", "text": "Good morning, what is the MOQ and lead time for grade A resin?" },
+          { "from": "bot",  "text": "Good morning. Grade A resin MOQ is 500 kg, lead time 10 working days. The distributor for your area is CV Sumber Jaya." },
+          { "from": "user", "text": "Can 1 tonne be faster?" },
+          { "from": "bot",  "text": "For 1 tonne, lead time can be 7 working days. I'll pass this to the sales team for a formal quote." },
+          { "from": "user", "text": "While we're here, how many unpaid invoices this month?" },
+          { "from": "bot",  "text": "From Odoo: 12 unpaid invoices, totalling Rp84,500,000. Three are over 30 days: CV Maju Jaya, Toko Sinar, PT Arta. Shall I summarise by customer?" },
+          { "from": "user", "text": "Yes, summarise by customer." },
+          { "from": "bot",  "text": "Done. I've sent the summary to the company's finance email. Anything else I can help with?" }
+        ]
+      },
+      {
+        "id": "service",
+        "channel": "WhatsApp",
+        "business": "Licensing Office",
+        "caption": "Example conversation: requirements come from the office's own official documents.",
+        "srDescription": "Example conversation with Conversa, shown for a licensing office: A resident asks what is needed to renew a business licence and whether it can be done online. Conversa lists the required documents from the office's own official records, explains the replacement for a lost NIB, and gives the estimate of five working days once documents are complete.",
+        "messages": [
+          { "from": "user", "text": "I want to renew my business licence. What do I need, and can it be done online?" },
+          { "from": "bot",  "text": "To renew a business licence you need: owner ID, NIB, the previous licence, and the last retribution payment receipt. All of it can be uploaded through the online service portal." },
+          { "from": "user", "text": "What if the NIB is lost?" },
+          { "from": "bot",  "text": "If it is lost, attach a police report of loss in place of the NIB. The rest is the same." },
+          { "from": "user", "text": "How long does it take?" },
+          { "from": "bot",  "text": "On average 5 working days once the documents are complete. If anything is missing, our officer will contact you on this number." },
+          { "from": "user", "text": "Great, thank you for the information." },
+          { "from": "bot",  "text": "You're welcome. If you'd like a document checked, just send it here." }
+        ]
+      },
+      {
+        "id": "umroh",
+        "channel": "WhatsApp",
+        "business": "Umrah & Hajj Travel",
+        "caption": "Example conversation: packages, schedules, and requirements from the agency's own documents.",
+        "srDescription": "Example conversation with Conversa, shown for an Umrah and Hajj travel agency: A prospective pilgrim asks about a package departing next month and its price. Conversa answers from the agency's own documents: a 9-day package departing on the 12th, quadruple share at Rp32,500,000 per pilgrim, including flights, 4-star hotels, and 3 meals a day. Conversa explains the Rp5,000,000 deposit with instalments up to 30 days before departure or through partner banks, lists the travel requirements, then records the requested schedule and offers help with documents.",
+        "messages": [
+          { "from": "user", "text": "Assalamualaikum, do you have an Umrah package departing next month? What is the price?" },
+          { "from": "bot",  "text": "Waalaikumsalam. Yes, we do: our 9-day package departs next month on the 12th. Quadruple share at Rp32,500,000 per pilgrim, including flights, 4-star hotels, and 3 meals a day." },
+          { "from": "user", "text": "What is the payment scheme? Can I pay in instalments?" },
+          { "from": "bot",  "text": "Yes. The deposit is Rp5,000,000, and the rest can be paid in instalments up to 30 days before departure. Bank instalment plans through our partner banks are also available." },
+          { "from": "user", "text": "What documents do I need to prepare?" },
+          { "from": "bot",  "text": "ID card, a passport valid for at least 6 months, a 3x4 photo with a red background, a meningitis vaccination book, and a marriage book if travelling with a spouse. The checklist is downloadable on our website." },
+          { "from": "user", "text": "Okay, let me process the documents first." },
+          { "from": "bot",  "text": "Of course. I've noted the departure date you asked about. If you need help with documents, our team is ready to assist." }
+        ]
+      },
+      {
+        "id": "influencer",
+        "channel": "Website chat",
+        "business": "Rina Official",
+        "caption": "Example conversation: follower Q&A, online classes, and digital products.",
+        "srDescription": "Example conversation with Conversa, shown for a content creator: A follower asks when the editing class opens a new batch. Conversa answers from the creator's own schedule: Batch 7 opens next Monday, 50 seats, including 12 live sessions plus a private discussion group. Conversa details the digital products (Lightroom presets, caption templates, a content-strategy e-book) delivered instantly to email, offers before-and-after examples of the indoor presets, sends them, and invites questions any time.",
+        "messages": [
+          { "from": "user", "text": "When does your editing class open a new batch?" },
+          { "from": "bot",  "text": "Batch 7 opens next Monday, 50 seats. It includes 12 live sessions plus a private discussion group. Want the full breakdown?" },
+          { "from": "user", "text": "Yes please. What digital products do you have?" },
+          { "from": "bot",  "text": "Lightroom presets, caption templates, and a content-strategy e-book. All are sold right here on the site and delivered to your email instantly." },
+          { "from": "user", "text": "Are the presets good for indoor photos?" },
+          { "from": "bot",  "text": "Yes, the pack includes 3 presets made for indoor light. Shall I send you before-and-after examples?" },
+          { "from": "user", "text": "Sure, send them over." },
+          { "from": "bot",  "text": "Sent! If you have any other questions about the class or products, just ask here, I reply any time." }
+        ]
+      }
+    ]
+  </script>
+
+  <!--
+    Vendor scripts (pinned, vendored locally, no CDN at runtime):
+      - Alpine.js   3.14.9  (@3.14.9/dist/cdn.min.js)
+      - Motion One  10.18.0 (@10.18.0/dist/motion.min.js)
+    Both use `defer`, so the HTML parses first (no render blocking).
+    app.js is loaded BEFORE Alpine on purpose: it registers the
+    `alpine:init` listener that defines the components, and deferred
+    scripts run in document order, so the listener is ready before
+    Alpine's bundle (which starts Alpine) executes.
+  -->
+  <script src="../src/app.js" defer></script>
+  <script src="../public/vendor/alpine.min.js" defer></script>
+  <script src="../public/vendor/motion.min.js" defer></script>
+
+  <!-- Progressive enhancement: gentle reveals.
+       Elements are hidden by `.js [data-reveal]` (added in <head> only when JS runs).
+       Reduced motion or a missing Motion bundle reveals them instantly. Never hidden. -->
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      var els = document.querySelectorAll("[data-reveal]");
+      var reduce =
+        window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // No Motion (or the visitor prefers reduced motion): show everything now.
+      if (reduce || !window.Motion || !window.Motion.animate) {
+        els.forEach(function (el) {
+          el.style.opacity = "1";
+        });
+        return;
+      }
+
+      els.forEach(function (el, i) {
+        el.style.opacity = "1";
+        window.Motion.animate(
+          el,
+          { opacity: [0, 1], transform: ["translateY(16px)", "translateY(0px)"] },
+          { duration: 0.5, delay: Math.min(i * 0.06, 0.3), easing: "ease-out" }
+        ).finished.finally(function () {
+          el.style.opacity = "1";
+        });
+      });
+    });
+  </script>
+</body>
+</html>
